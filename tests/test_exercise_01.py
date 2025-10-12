@@ -2,7 +2,7 @@
 
 import pytest
 from unittest.mock import Mock, patch
-from solutions.ex01_agent_hello_world.main import get_weather
+from solutions.01_agent_hello_world.main import get_weather
 
 
 def test_get_weather():
