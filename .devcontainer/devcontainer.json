@@ -1,0 +1,44 @@
+{
+  "name": "Temporal AI Agents Workshop",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "installOhMyZsh": false
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "ms-toolsai.jupyter"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.formatting.provider": "none",
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff",
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          }
+        }
+      }
+    }
+  },
+  "postCreateCommand": "bash scripts/bootstrap.sh",
+  "forwardPorts": [7233, 8233],
+  "portsAttributes": {
+    "7233": {
+      "label": "Temporal Server",
+      "onAutoForward": "ignore"
+    },
+    "8233": {
+      "label": "Temporal UI",
+      "onAutoForward": "notify"
+    }
+  }
+}
