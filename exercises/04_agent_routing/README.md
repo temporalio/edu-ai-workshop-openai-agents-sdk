@@ -36,11 +36,10 @@ Before starting this exercise, ensure you have:
 ### 1. Temporal Server Running
 
 ```bash
-# Start Temporal dev server (from project root)
-make temporal-up
-
-# Or manually:
-temporal server start-dev
+# Start Temporal using temporal_installation.ipynb notebook:
+#   1. Open temporal_installation.ipynb in VS Code
+#   2. Run each cell to install Temporal CLI and start the dev server
+#   3. Verify at http://localhost:8233
 ```
 
 Verify at: http://localhost:8233
@@ -311,7 +310,9 @@ Real Temporal applications use separate files:
 ## Troubleshooting
 
 **Error: `Failed to connect to Temporal server`**
-- Ensure Temporal is running: `make temporal-up`
+- Ensure Temporal is running using `temporal_installation.ipynb`:
+  1. Open `temporal_installation.ipynb` in VS Code
+  2. Run each cell to install and start Temporal
 - Check: http://localhost:8233
 
 **Error: `No module named 'agents'`**
