@@ -27,7 +27,7 @@ async def call_agent_with_tools(query: str, trace_id: str) -> str:
 1. **Exercise 1:** Basic OpenAI agent with tool calling (no Temporal)
 2. **Exercise 2:** Basic Temporal workflow + activity (no AI)
 3. **Exercise 3:** **Core pattern** - AI agent wrapped in Temporal activities
-4. **Exercise 4:** Multi-agent handoff with workflow orchestration
+4. **Exercise 4:** Agent routing workflow with language specialists using production file structure
 
 ## Development Workflow
 

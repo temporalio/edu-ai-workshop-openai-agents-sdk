@@ -25,12 +25,13 @@ temporal-down:
 	@echo "Stopping Temporal server..."
 	@pkill -f "temporal server start-dev" || echo "Temporal not running"
 
-# Note: All exercises are Jupyter notebooks (.ipynb files)
+# Note: Exercises 1-3 are Jupyter notebooks (.ipynb files)
+# Exercise 4 uses separate Python files (production pattern)
 # Open them in VS Code or Jupyter Lab:
 #   exercises/01_agent_hello_world/exercise.ipynb
 #   exercises/02_temporal_hello_world/exercise.ipynb
 #   exercises/03_durable_agent/exercise.ipynb
-#   exercises/04_multi_agent_handoff/exercise.ipynb
+#   exercises/04_agent_routing/  (Python files: workflow.py, worker.py, starter.py)
 
 clean:
 	@echo "Cleaning up..."
