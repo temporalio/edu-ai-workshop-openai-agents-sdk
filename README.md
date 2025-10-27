@@ -321,7 +321,7 @@ Then select the `temporal-workshop` kernel in your notebook! 🎯
 
 **In Codespaces:** The port should be automatically forwarded. Check the "Ports" tab in VS Code and make sure port 8233 is forwarded and public. 🌐
 
-**Local:** Make sure Temporal server is running (`make temporal-up`) and visit http://localhost:8233
+**Solution:** Make sure Temporal server is running using `temporal_installation.ipynb` and visit http://localhost:8233
 
 ---
 
