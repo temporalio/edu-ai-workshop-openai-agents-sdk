@@ -65,7 +65,6 @@ This is a **90-minute workshop**: 30 minutes instruction + 4×15 minute exercise
 │   └── 04_agent_routing/           # Solution Python files (workflow.py, worker.py, starter.py)
 │
 ├── 🛠️  scripts/                     # Helper scripts (bootstrap, env checks)
-├── 🧪 tests/                       # Automated tests with mocked APIs
 ├── 📝 Makefile                     # Common commands (setup, lint, test)
 ├── 📋 WORKSHOP_SPEC.md             # Workshop design specification
 └── 📖 README.md                    # You are here! 👋
