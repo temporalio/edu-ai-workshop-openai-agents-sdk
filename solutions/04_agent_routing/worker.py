@@ -13,7 +13,7 @@ To run: python worker.py
 import asyncio
 from datetime import timedelta
 # Import the workflow class that this worker will execute
-from routing_workflow import RoutingWorkflow, TASK_QUEUE
+from workflow import RoutingWorkflow, TASK_QUEUE
 from temporalio.client import Client
 from temporalio.contrib.openai_agents import ModelActivityParameters, OpenAIAgentsPlugin
 from temporalio.worker import Worker

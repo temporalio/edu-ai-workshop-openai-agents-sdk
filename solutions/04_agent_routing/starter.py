@@ -18,7 +18,7 @@ from temporalio.client import Client
 from temporalio.contrib.openai_agents import OpenAIAgentsPlugin
 
 # Import workflow class and task queue from workflow module
-from routing_workflow import RoutingWorkflow, TASK_QUEUE
+from workflow import RoutingWorkflow, TASK_QUEUE
 
 
 async def main():

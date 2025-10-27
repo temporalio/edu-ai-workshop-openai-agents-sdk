@@ -1,0 +1,356 @@
+# Exercise 4: Routing Workflow
+
+**Goal:** Build a routing workflow that intelligently distributes requests to specialized language agents using the handoff pattern.
+
+**Timebox:** 15 minutes
+
+## What You'll Learn
+
+- Implement agent routing/triage patterns with OpenAI Agents SDK
+- Create specialized agents for different languages (French, Spanish, English)
+- Use handoff patterns for agent-to-agent transitions
+- Build production-ready multi-agent systems with Temporal
+- Understand how to structure real Temporal applications (separate files for workflow, worker, starter)
+
+## Architecture
+
+This exercise demonstrates the **routing pattern** where a triage agent analyzes incoming requests and delegates to specialized agents:
+
+```
+User Query (any language)
+    ↓
+Temporal Workflow 🎭
+    ↓
+Triage Agent 🔍
+    ├─→ French Agent 🇫🇷 (if French detected)
+    ├─→ Spanish Agent 🇪🇸 (if Spanish detected)
+    └─→ English Agent 🇬🇧 (if English detected)
+    ↓
+Response in appropriate language ✅
+```
+
+## Prerequisites
+
+Before starting this exercise, ensure you have:
+
+### 1. Temporal Server Running
+
+```bash
+# Start Temporal dev server (from project root)
+make temporal-up
+
+# Or manually:
+temporal server start-dev
+```
+
+Verify at: http://localhost:8233
+
+### 2. Dependencies Installed
+
+```bash
+# Install from this directory
+pip install -r requirements.txt
+
+# Or from project root:
+pip install temporalio openai-agents httpx rich pytz
+```
+
+### 3. Environment Variables Set
+
+Ensure your `.env` file in the project root contains:
+
+```bash
+OPENAI_API_KEY=your_api_key_here
+```
+
+Verify with:
+
+```bash
+# From project root
+make env
+```
+
+## File Structure
+
+This exercise uses a **realistic Temporal application structure** with separate Python files:
+
+```
+exercises/04_agent_routing/
+├── workflow.py      # Workflow definition and agent configurations (TODO)
+├── worker.py        # Worker that executes workflows (TODO)
+├── starter.py       # Script to run the workflow (TODO)
+├── requirements.txt # Dependencies
+└── README.md        # This file
+```
+
+This mirrors production Temporal applications where:
+- **Workflows** define business logic
+- **Workers** execute workflows and activities
+- **Starters** trigger workflow executions
+
+## Steps
+
+### Step 1: Define the Agents
+
+**Open `workflow.py` and complete the TODOs:**
+
+1. **Implement `french_agent()`:**
+   - Return an `Agent` with name "French Agent"
+   - Instructions: "You only speak French. Respond naturally to user queries in French."
+   - Model: "gpt-4"
+
+2. **Implement `spanish_agent()`:**
+   - Return an `Agent` with name "Spanish Agent"
+   - Instructions: "You only speak Spanish. Respond naturally to user queries in Spanish."
+   - Model: "gpt-4"
+
+3. **Implement `english_agent()`:**
+   - Return an `Agent` with name "English Agent"
+   - Instructions: "You only speak English. Respond naturally to user queries in English."
+   - Model: "gpt-4"
+
+4. **Implement `triage_agent()`:**
+   - Return an `Agent` with name "Triage Agent"
+   - Instructions: "You are a triage agent. Analyze the language of the user's query and handoff to the appropriate language specialist agent."
+   - **Important:** Add `handoffs=[french_agent(), spanish_agent(), english_agent()]`
+   - Model: "gpt-4"
+
+**Hint:** Use the `Agent` class from `agents`:
+
+```python
+from agents import Agent
+
+return Agent(
+    name="...",
+    instructions="...",
+    handoffs=[...],  # Only for triage agent
+    model="gpt-4"
+)
+```
+
+### Step 2: Implement the Workflow
+
+**In `workflow.py`, complete the `RoutingWorkflow.run()` method:**
+
+1. Format the user query as a message:
+   ```python
+   new_message: ChatCompletionMessageParam = {
+       "role": "user",
+       "content": user_query,
+   }
+   ```
+2. Execute the triage agent:
+   ```python
+   result = await Runner.run(triage_agent(), new_message)
+   ```
+3. Extract and return the final output:
+   ```python
+   return result.final_output
+   ```
+
+### Step 3: Implement the Worker
+
+**Open `worker.py` and complete the TODOs:**
+
+1. Connect to Temporal:
+   ```python
+   client = await Client.connect(
+       "localhost:7233",
+       plugins=[
+           OpenAIAgentsPlugin(
+               model_params=ModelActivityParameters(
+                   start_to_close_timeout=timedelta(seconds=30)
+               )
+           )
+       ],
+   )
+   ```
+
+2. Create the worker:
+   ```python
+   worker = Worker(
+       client,
+       task_queue=TASK_QUEUE,
+       workflows=[RoutingWorkflow],
+   )
+   ```
+
+3. Run the worker:
+   ```python
+   await worker.run()
+   ```
+
+### Step 4: Implement the Starter
+
+**Open `starter.py` and complete the TODOs:**
+
+1. Connect to Temporal:
+   ```python
+   client = await Client.connect(
+       "localhost:7233",
+       plugins=[OpenAIAgentsPlugin()]
+   )
+   ```
+
+2. Generate workflow ID:
+   ```python
+   est = pytz.timezone("US/Eastern")
+   now = datetime.now(est)
+   workflow_id = f"routing-{now.strftime('%a-%b-%d-%I%M%S').lower()}est"
+   ```
+
+3. Choose a query (try different languages!):
+   ```python
+   query = queries[0]  # French query
+   ```
+
+4. Start the workflow:
+   ```python
+   handle = await client.start_workflow(
+       RoutingWorkflow.run,
+       query,
+       id=workflow_id,
+       task_queue=TASK_QUEUE,
+   )
+   ```
+
+5. Wait for and display result:
+   ```python
+   result = await handle.result()
+   print(result)
+   ```
+
+### Step 5: Run the Workflow
+
+**Terminal 1 - Start the worker:**
+
+```bash
+cd exercises/04_agent_routing
+python worker.py
+```
+
+Wait for: `🚀 Worker started successfully`
+
+**Terminal 2 - Execute the workflow:**
+
+```bash
+cd exercises/04_agent_routing
+python starter.py
+```
+
+### Step 6: Observe in Temporal UI
+
+1. Open: http://localhost:8233
+2. Find your workflow by ID
+3. Observe the agent handoff and execution history
+
+### Step 7: Test Different Languages
+
+Modify `starter.py` to test Spanish or English:
+
+```python
+query = queries[1]  # Spanish
+# or
+query = queries[2]  # English
+```
+
+Run `python starter.py` again and observe routing to different agents!
+
+## Expected Output
+
+### French Query
+
+**Input:** `"Bonjour! Comment allez-vous aujourd'hui?"`
+
+**Output:**
+```
+🚀 Starting Routing Workflow
+📋 Workflow ID: routing-wed-oct-16-103045est
+💬 Query: Bonjour! Comment allez-vous aujourd'hui?
+
+✅ Workflow started: routing-wed-oct-16-103045est
+🔗 View in Temporal UI: http://localhost:8233/...
+⏳ Waiting for agent response...
+
+======================================================================
+🤖 Agent Response
+======================================================================
+Bonjour! Je vais très bien, merci de demander!
+Comment puis-je vous aider aujourd'hui?
+======================================================================
+```
+
+## Key Concepts
+
+### Routing Pattern
+
+The **routing pattern** (triage pattern) uses:
+- **Triage Agent:** Analyzes requests and decides routing
+- **Specialist Agents:** Handle specific types of requests
+- **Handoff Mechanism:** Transfers control between agents
+
+### Handoff Pattern
+
+Enable agent handoffs with the `handoffs` parameter:
+
+```python
+Agent(
+    name="Triage Agent",
+    handoffs=[agent1(), agent2(), agent3()],
+    ...
+)
+```
+
+### Production File Structure
+
+Real Temporal applications use separate files:
+- `workflow.py` - Business logic
+- `worker.py` - Execution infrastructure
+- `starter.py` - Workflow invocation
+
+## Troubleshooting
+
+**Error: `Failed to connect to Temporal server`**
+- Ensure Temporal is running: `make temporal-up`
+- Check: http://localhost:8233
+
+**Error: `No module named 'agents'`**
+- Run: `pip install openai-agents`
+
+**Error: `OPENAI_API_KEY is not set`**
+- Add key to `.env` in project root
+- Reload terminal
+
+**Worker not picking up tasks**
+- Verify worker is running
+- Check task queue matches in worker and starter
+
+## Stretch Goals
+
+1. **Add a fourth language** (German, Italian, etc.)
+2. **Add conversation history** to maintain context
+3. **Add fallback agent** for unclear languages
+4. **Add logging** to track routing decisions
+5. **Implement multi-step routing** (language → topic specialists)
+
+## Compare with Solution
+
+After completing the exercise, compare your implementation with:
+
+```bash
+cd ../../solutions/04_agent_routing
+cat workflow.py
+cat worker.py
+cat starter.py
+```
+
+## Next Steps
+
+Congratulations! You've completed the workshop and learned:
+
+- ✅ Multi-agent architectures with routing patterns
+- ✅ Agent handoffs with OpenAI Agents SDK
+- ✅ Production-ready Temporal application structure
+- ✅ How to observe and debug multi-agent workflows
+
+You now know how to build durable, production-ready AI agents! 🎉

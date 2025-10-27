@@ -47,7 +47,9 @@ temporal server start-dev     # Start Temporal local dev server (idempotent)
 
 ### Exercises
 
-- All exercises and solutions live in `.ipynb` self-contained files that have all of the necessary code to work independently. No extra files should be required.
+- **Exercises 1-3:** Self-contained Jupyter notebooks (`.ipynb`) with all necessary code
+- **Exercise 4:** Separate Python files (workflow.py, worker.py, starter.py) demonstrating production structure
+- All exercises can be run independently with proper setup (Temporal server + dependencies)
 
 ## Repository Architecture
 
@@ -248,11 +250,57 @@ async def main():
 - Use `start_workflow` (not `execute_workflow`)
 - Each Jupyter cell represents one component file
 
-4. **Exercise 4 - Multi-Agent Handoff** (`exercises/04_multi_agent_handoff/`)
-   - Advanced: Multiple specialized agents from OpenAI Agents SDK similar to https://openai.github.io/openai-agents-python/quickstart/#put-it-all-together
-   - Triage agent routes queries to specialist agents
-   - Context maintained across agent handoffs
-   - Workflow orchestration of agent-to-agent transitions
+4. **Exercise 4 - Routing Workflow** (`exercises/04_agent_routing/`)
+   - **Production-ready structure:** Separate Python files (workflow.py, worker.py, starter.py) instead of notebooks
+   - **Routing pattern:** Triage agent analyzes language and routes to specialists (French, Spanish, English)
+   - **Handoff mechanism:** Uses OpenAI Agents SDK handoff pattern for agent-to-agent transitions
+   - **Based on Temporal samples:** Adapted from [samples-python routing workflow](https://github.com/temporalio/samples-python/tree/main/openai_agents/agent_patterns)
+   - **Real Temporal application structure:** Mirrors production deployment patterns with worker/starter separation
+
+```py
+# Example from Exercise 4 - Agent Definitions
+from agents import Agent
+
+def french_agent() -> Agent:
+    """Agent specialized in French language communication."""
+    return Agent(
+        name="French Agent",
+        instructions="You only speak French. Respond naturally in French.",
+        model="gpt-4"  # OpenAI model
+    )
+
+def triage_agent() -> Agent:
+    """Triage agent that routes to language specialists."""
+    return Agent(
+        name="Triage Agent",
+        instructions="Detect language and handoff to appropriate specialist.",
+        handoffs=[french_agent(), spanish_agent(), english_agent()],
+        model="gpt-4"
+    )
+
+# Workflow Implementation
+@workflow.defn
+class RoutingWorkflow:
+    @workflow.run
+    async def run(self, user_query: str) -> str:
+        """Execute routing workflow with language detection and handoff."""
+        config = RunConfig()
+        new_message: ChatCompletionMessageParam = {
+            "role": "user",
+            "content": user_query,
+        }
+
+        # Triage agent analyzes and routes to specialist
+        result = await Runner.run(triage_agent(), new_message, config=config)
+        return result.final_output
+```
+
+**Key Differences from Other Exercises:**
+- ❌ **NOT a Jupyter notebook** - uses separate Python files like production apps
+- ✅ **3-file pattern:** workflow.py (logic) + worker.py (execution) + starter.py (invocation)
+- ✅ **Multiple specialized agents** with handoff coordination
+- ✅ **Language-based routing** demonstrates intelligent agent distribution
+- ✅ **Run with:** `python worker.py` (terminal 1) + `python starter.py` (terminal 2)
 
 ### Directory Structure
 
@@ -266,7 +314,8 @@ scripts/       # Bootstrap, environment checks, Temporal startup
 
 Each exercise directory contains:
 
-- Jupyter notebooks for interactive learning (where applicable)
+- **Exercises 1-3:** Jupyter notebooks (`.ipynb`) for interactive learning
+- **Exercise 4:** Separate Python files (workflow.py, worker.py, starter.py) for production pattern
 - `README.md` with: Goal, Steps (≤5), Expected Output, Stretch Goal, Timebox
 
 ## Key Architectural Patterns
@@ -308,7 +357,7 @@ workflow_id = f"durable-agent-{now.strftime('%a-%b-%d-%I%M%S').lower()}est"
 **Examples by Exercise:**
 - Exercise 2: `hello-workflow-thu-oct-16-095919est`
 - Exercise 3: `durable-agent-wed-oct-16-094832est`
-- Exercise 4: `multi-agent-fri-oct-17-103045est`
+- Exercise 4: `routing-fri-oct-17-103045est`
 
 **Required Dependencies:**
 - Add `pytz` to pip install commands: `%pip install --quiet temporalio openai-agents httpx rich nest-asyncio pytz`

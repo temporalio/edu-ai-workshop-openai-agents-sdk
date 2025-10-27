@@ -88,23 +88,24 @@ make temporal-up
 
 This is a **90-minute workshop**: 30 minutes instruction + 4×15 minute exercises
 
-All exercises are **Jupyter notebooks** 📓 - no command-line scripts needed!
+**Exercises 1-3** are **Jupyter notebooks** 📓 for interactive learning.
+**Exercise 4** uses **separate Python files** to demonstrate production-ready Temporal applications!
 
 ### 📂 Repository Navigation
 
 ```
 📁 temporal-openai-agents-sdk/
 ├── 📓 exercises/                    # Work here during the workshop
-│   ├── 01_agent_hello_world/       # Exercise 1 - OpenAI agent basics
-│   ├── 02_temporal_hello_world/    # Exercise 2 - Temporal fundamentals
-│   ├── 03_durable_agent/           # Exercise 3 - Combine both! 🎯
-│   └── 04_multi_agent_handoff/     # Exercise 4 - Multi-agent systems
+│   ├── 01_agent_hello_world/       # Exercise 1 - OpenAI agent basics (.ipynb)
+│   ├── 02_temporal_hello_world/    # Exercise 2 - Temporal fundamentals (.ipynb)
+│   ├── 03_durable_agent/           # Exercise 3 - Combine both! 🎯 (.ipynb)
+│   └── 04_agent_routing/           # Exercise 4 - Routing workflow (.py files)
 │
 ├── 📗 solutions/                    # Compare your work
-│   ├── 01_agent_hello_world/
-│   ├── 02_temporal_hello_world/
-│   ├── 03_durable_agent/
-│   └── 04_multi_agent_handoff/
+│   ├── 01_agent_hello_world/       # Solution notebook
+│   ├── 02_temporal_hello_world/    # Solution notebook
+│   ├── 03_durable_agent/           # Solution notebook
+│   └── 04_agent_routing/           # Solution Python files (workflow.py, worker.py, starter.py)
 │
 ├── 🛠️  scripts/                     # Helper scripts (bootstrap, env checks)
 ├── 🧪 tests/                       # Automated tests with mocked APIs
@@ -183,20 +184,45 @@ exercises/03_durable_agent/exercise.ipynb
 
 ---
 
-### Exercise 4: Multi-Agent Handoff 🤝
+### Exercise 4: Routing Workflow 🔀
 
-**Goal:** Build multi-agent systems with workflow orchestration
+**Goal:** Build a routing workflow with language-specific agents using production-ready file structure
 
 **What you'll learn:**
-- 🎯 Implement agent routing/triage patterns
-- 👥 Create specialized agents for different tasks
-- 🔀 Orchestrate agent handoffs with Temporal
-- 💬 Maintain context across agent transitions
+- 🎯 Implement agent routing/triage patterns with OpenAI Agents SDK
+- 🌍 Create specialized language agents (French, Spanish, English)
+- 🔀 Use handoff patterns for agent-to-agent transitions
+- 📁 Structure real Temporal applications (workflow, worker, starter files)
+- 🚀 Run production-style workflows with separate worker processes
+
+**This exercise uses separate Python files (not a notebook) to demonstrate production patterns!**
+
+**Prerequisites:**
+```bash
+# Temporal server must be running
+make temporal-up
+```
 
 **Run it:**
 ```bash
-# Open the Jupyter notebook:
-exercises/04_multi_agent_handoff/exercise.ipynb
+# Terminal 1 - Start the worker
+cd exercises/04_agent_routing
+python worker.py
+
+# Terminal 2 - Execute the workflow
+cd exercises/04_agent_routing
+python starter.py
+```
+
+**Compare with solution:**
+```bash
+# Terminal 1 - Start solution worker
+cd solutions/04_agent_routing
+python worker.py
+
+# Terminal 2 - Run solution
+cd solutions/04_agent_routing
+python starter.py
 ```
 
 **Time:** 15 minutes ⏱️
@@ -217,18 +243,21 @@ make temporal-up    # Start Temporal dev server
 make temporal-down  # Stop Temporal server
 
 # 📓 Working with exercises
-# All exercises are Jupyter notebooks!
-# Open them in VS Code or Jupyter Lab:
+# Exercises 1-3 are Jupyter notebooks:
 #   exercises/01_agent_hello_world/exercise.ipynb
 #   exercises/02_temporal_hello_world/exercise.ipynb
 #   exercises/03_durable_agent/exercise.ipynb
-#   exercises/04_multi_agent_handoff/exercise.ipynb
+#
+# Exercise 4 uses separate Python files (production pattern):
+#   cd exercises/04_agent_routing
+#   python worker.py    # Terminal 1
+#   python starter.py   # Terminal 2
 #
 # Compare with solutions at:
 #   solutions/01_agent_hello_world/solution.ipynb
 #   solutions/02_temporal_hello_world/solution.ipynb
 #   solutions/03_durable_agent/solution.ipynb
-#   solutions/04_multi_agent_handoff/solution.ipynb
+#   solutions/04_agent_routing/  # Python files (workflow.py, worker.py, starter.py)
 ```
 
 ## 🔍 Key Concepts
@@ -385,8 +414,9 @@ pip install -e ".[dev]"
    - Show how to adjust for longer-running operations
    
 5. **Notebook vs Python files** 📝
-   - All exercises are Jupyter notebooks (`.ipynb`)
-   - No command-line `main.py` files - everything in notebooks!
+   - Exercises 1-3 are Jupyter notebooks (`.ipynb`)
+   - Exercise 4 uses separate Python files (workflow.py, worker.py, starter.py)
+   - Emphasize Exercise 4 demonstrates production application structure
 
 ### Key Teaching Points 🎯
 
@@ -403,9 +433,11 @@ pip install -e ".[dev]"
   - The agent code doesn't change - Temporal wraps it!
   - Emphasize: production-ready with zero agent modifications
   
-- **Exercise 4:** Advanced - focus on the routing pattern and context passing 🤝
-  - Multi-agent systems are orchestrated workflows
-  - Each agent is specialized for specific tasks
+- **Exercise 4:** Advanced routing workflow with production file structure 🔀
+  - Language-based routing pattern (French/Spanish/English agents)
+  - Handoff pattern enables agent-to-agent transitions
+  - Demonstrates real Temporal application structure (separate worker/starter)
+  - Show how to run with two terminals (worker + starter)
 
 ## 📝 License
 
