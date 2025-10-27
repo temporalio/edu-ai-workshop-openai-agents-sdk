@@ -22,7 +22,7 @@ By the end of this workshop, you'll understand how to:
 
 ## 🚀 Quick Start
 
-### Option 1: GitHub Codespaces (Recommended) ⭐
+### GitHub Codespaces (Recommended) ⭐
 
 1. Click the "Open in GitHub Codespaces" badge above 👆
 2. Wait ~90 seconds for the environment to set up ⏱️
@@ -31,58 +31,15 @@ By the end of this workshop, you'll understand how to:
    cp .env.sample .env
    # Edit .env and add your OPENAI_API_KEY
    ```
-4. Start Temporal server:
-   ```bash
-   make temporal-up
-   ```
+4. Install and start Temporal server using the notebook 📓:
+   - Open `temporal_installation.ipynb` in VS Code
+   - Run each cell to:
+     - Install the Temporal CLI
+     - Start the Temporal dev server
+   - Verify at: http://localhost:8233 ✅
 5. You're ready to start the exercises! 🎓
 
-#### 📓 Alternative: One-Click Temporal Installation
-
-For easiest Temporal setup, you can also use the Jupyter notebook:
-
-1. Open `temporal_installation.ipynb` in VS Code or Jupyter Lab
-2. Run each cell to:
-   - Install the Temporal CLI
-   - Start the Temporal dev server
-
-This method works in Codespaces, local dev containers, and most Linux environments.
-
-### Option 2: Local Setup 💻
-
-#### 📓 One-Click Temporal Installation (Recommended)
-
-You can use the Jupyter notebook for local setup:
-
-1. Open `temporal_installation.ipynb` in VS Code or Jupyter Lab
-2. Run each cell to:
-   - Install the Temporal CLI
-   - Start the Temporal dev server
-
-#### Manual Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/nadvolod/temporal-openai-agents-sdk.git
-cd temporal-openai-agents-sdk
-
-# Create and activate virtual environment
-python3.11 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-make setup
-
-# Set up environment
-cp .env.sample .env
-# Edit .env and add your OPENAI_API_KEY
-
-# Install Temporal CLI (if not already installed)
-curl -sSf https://temporal.download/cli.sh | sh
-
-# Start Temporal server
-make temporal-up
-```
+**Note:** All workshop instructions use the `temporal_installation.ipynb` notebook for Temporal setup. This ensures a consistent, reliable experience across all environments! 🎯
 
 ## 📚 Workshop Structure
 
@@ -108,7 +65,6 @@ This is a **90-minute workshop**: 30 minutes instruction + 4×15 minute exercise
 │   └── 04_agent_routing/           # Solution Python files (workflow.py, worker.py, starter.py)
 │
 ├── 🛠️  scripts/                     # Helper scripts (bootstrap, env checks)
-├── 🧪 tests/                       # Automated tests with mocked APIs
 ├── 📝 Makefile                     # Common commands (setup, lint, test)
 ├── 📋 WORKSHOP_SPEC.md             # Workshop design specification
 └── 📖 README.md                    # You are here! 👋
@@ -126,12 +82,6 @@ This is a **90-minute workshop**: 30 minutes instruction + 4×15 minute exercise
 - 💡 See how LLMs decide when to use tools
 - 🌐 Call real APIs (National Weather Service)
 
-**Run it:**
-```bash
-# Open the Jupyter notebook in VS Code or Jupyter Lab:
-exercises/01_agent_hello_world/exercise.ipynb
-```
-
 **Time:** 15 minutes ⏱️
 
 ---
@@ -145,17 +95,6 @@ exercises/01_agent_hello_world/exercise.ipynb
 - ⚙️ Learn about activities as units of work
 - 🔍 Observe execution in the Temporal UI
 - 💪 Experience automatic retries
-
-**Prerequisites:**
-```bash
-make temporal-up    # Start Temporal server first!
-```
-
-**Run it:**
-```bash
-# Open the Jupyter notebook:
-exercises/02_temporal_hello_world/exercise.ipynb
-```
 
 **Time:** 15 minutes ⏱️
 
@@ -174,12 +113,6 @@ exercises/02_temporal_hello_world/exercise.ipynb
 
 **This is the KEY exercise!** 🎯
 
-**Run it:**
-```bash
-# Open the Jupyter notebook:
-exercises/03_durable_agent/exercise.ipynb
-```
-
 **Time:** 15 minutes ⏱️
 
 ---
@@ -195,36 +128,6 @@ exercises/03_durable_agent/exercise.ipynb
 - 📁 Structure real Temporal applications (workflow, worker, starter files)
 - 🚀 Run production-style workflows with separate worker processes
 
-**This exercise uses separate Python files (not a notebook) to demonstrate production patterns!**
-
-**Prerequisites:**
-```bash
-# Temporal server must be running
-make temporal-up
-```
-
-**Run it:**
-```bash
-# Terminal 1 - Start the worker
-cd exercises/04_agent_routing
-python worker.py
-
-# Terminal 2 - Execute the workflow
-cd exercises/04_agent_routing
-python starter.py
-```
-
-**Compare with solution:**
-```bash
-# Terminal 1 - Start solution worker
-cd solutions/04_agent_routing
-python worker.py
-
-# Terminal 2 - Run solution
-cd solutions/04_agent_routing
-python starter.py
-```
-
 **Time:** 15 minutes ⏱️
 
 ## 🛠️ Common Commands
@@ -239,8 +142,10 @@ make lint           # Run code linters (ruff, mypy)
 make test           # Run test suite (mocked - no API key needed!)
 
 # ⚡ Temporal server
-make temporal-up    # Start Temporal dev server
-make temporal-down  # Stop Temporal server
+# Use temporal_installation.ipynb notebook to install and start Temporal:
+#   1. Open temporal_installation.ipynb in VS Code
+#   2. Run each cell to install Temporal CLI and start dev server
+#   3. Verify at http://localhost:8233
 
 # 📓 Working with exercises
 # Exercises 1-3 are Jupyter notebooks:
@@ -320,15 +225,14 @@ python scripts/check_env.py
 ```bash
 # Check if it's running
 pgrep -f temporal
-
-# Start it
-make temporal-up
-
-# Or manually
-temporal server start-dev
 ```
 
-**Fix:** The Temporal dev server must be running for exercises 2, 3, and 4! ⚡
+**Fix:** Use the `temporal_installation.ipynb` notebook to install and start Temporal:
+1. Open `temporal_installation.ipynb` in VS Code
+2. Run each cell to install Temporal CLI and start the dev server
+3. Verify at http://localhost:8233
+
+The Temporal dev server must be running for exercises 2, 3, and 4! ⚡
 
 ---
 
@@ -360,7 +264,7 @@ Then select the `temporal-workshop` kernel in your notebook! 🎯
 
 **In Codespaces:** The port should be automatically forwarded. Check the "Ports" tab in VS Code and make sure port 8233 is forwarded and public. 🌐
 
-**Local:** Make sure Temporal server is running (`make temporal-up`) and visit http://localhost:8233
+**Solution:** Make sure Temporal server is running using `temporal_installation.ipynb` and visit http://localhost:8233
 
 ---
 
@@ -402,7 +306,8 @@ pip install -e ".[dev]"
    - Emphasize that exercises 1, 3, 4 need API key
    
 2. **Temporal not running** ⚡
-   - Remind students to run `make temporal-up` for Exercise 2+
+   - Remind students to use `temporal_installation.ipynb` notebook to install and start Temporal
+   - Walk through opening the notebook and running each cell
    - Show them how to verify at http://localhost:8233
    
 3. **Confusion between exercise and solution** 📓
