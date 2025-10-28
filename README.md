@@ -77,6 +77,7 @@ This is a **90-minute workshop**: 30 minutes instruction + 4×15 minute exercise
 **Goal:** Create a simple AI agent with tool calling using real weather data
 
 **What you'll learn:**
+
 - 🤖 Build your first OpenAI agent with a weather tool
 - 🔧 Understand the agent → tool → response flow
 - 💡 See how LLMs decide when to use tools
@@ -91,6 +92,7 @@ This is a **90-minute workshop**: 30 minutes instruction + 4×15 minute exercise
 **Goal:** Understand Temporal workflows and activities
 
 **What you'll learn:**
+
 - 🏗️ Create your first Temporal workflow
 - ⚙️ Learn about activities as units of work
 - 🔍 Observe execution in the Temporal UI
@@ -105,6 +107,7 @@ This is a **90-minute workshop**: 30 minutes instruction + 4×15 minute exercise
 **Goal:** Combine agents + Temporal for production durability ⭐
 
 **What you'll learn:**
+
 - 🔄 Wrap LLM calls in Temporal activities
 - ✨ Get automatic retries on failures (magic! ✨)
 - 💾 Persist agent state across crashes
@@ -122,6 +125,7 @@ This is a **90-minute workshop**: 30 minutes instruction + 4×15 minute exercise
 **Goal:** Build a routing workflow with language-specific agents using production-ready file structure
 
 **What you'll learn:**
+
 - 🎯 Implement agent routing/triage patterns with OpenAI Agents SDK
 - 🌍 Create specialized language agents (French, Spanish, English)
 - 🔀 Use handoff patterns for agent-to-agent transitions
@@ -227,6 +231,7 @@ pgrep -f temporal
 ```
 
 **Fix:** Use the `temporal_installation.ipynb` notebook to install and start Temporal:
+
 1. Open `temporal_installation.ipynb` in VS Code
 2. Run each cell to install Temporal CLI and start the dev server
 3. Verify at http://localhost:8233
@@ -302,20 +307,16 @@ pip install -e ".[dev]"
 1. **Students skip checking `.env`** 🔑
    - Do environment check before starting (`make env`)
    - Emphasize that exercises 1, 3, 4 need API key
-   
 2. **Temporal not running** ⚡
    - Remind students to use `temporal_installation.ipynb` notebook to install and start Temporal
    - Walk through opening the notebook and running each cell
    - Show them how to verify at http://localhost:8233
-   
 3. **Confusion between exercise and solution** 📓
    - Clearly explain: work in `exercises/`, compare with `solutions/`
    - Solution notebooks are complete standalone implementations
-   
 4. **Activity timeouts** ⏳
    - Explain `start_to_close_timeout` defaults
    - Show how to adjust for longer-running operations
-   
 5. **Notebook vs Python files** 📝
    - Exercises 1-3 are Jupyter notebooks (`.ipynb`)
    - Exercise 4 uses separate Python files (workflow.py, worker.py, starter.py)
@@ -326,16 +327,13 @@ pip install -e ".[dev]"
 - **Exercise 1:** Emphasize tool calling as the foundation of agentic behavior 🤖
   - Show how the agent decides to use tools
   - Highlight the real API integration (National Weather Service)
-  
 - **Exercise 2:** Show the Temporal UI extensively - it's powerful for debugging! 🔍
   - Walk through execution history
   - Demonstrate the retry mechanism
-  
 - **Exercise 3:** THIS IS THE KEY 🌟
   - Show how activities make LLM calls durable
   - The agent code doesn't change - Temporal wraps it!
   - Emphasize: production-ready with zero agent modifications
-  
 - **Exercise 4:** Advanced routing workflow with production file structure 🔀
   - Language-based routing pattern (French/Spanish/English agents)
   - Handoff pattern enables agent-to-agent transitions

@@ -127,6 +127,7 @@ if __name__ == "__main__":
 Exercise 3 follows the production-ready structure from [temporal-weather-openai-agents](https://github.com/nadvolod/temporal-weather-openai-agents):
 
 #### **Component 1: activities.py**
+
 ```py
 import httpx
 from temporalio import activity
@@ -157,6 +158,7 @@ async def get_weather(state: str) -> dict:
 ```
 
 #### **Component 2: workflow.py**
+
 ```py
 from datetime import timedelta
 from temporalio import workflow
@@ -185,6 +187,7 @@ class WeatherAgentWorkflow:
 ```
 
 #### **Component 3: worker.py**
+
 ```py
 from temporalio.client import Client
 from temporalio.worker import Worker
@@ -216,6 +219,7 @@ async def main():
 ```
 
 #### **Component 4: starter.py**
+
 ```py
 from temporalio.client import Client
 from temporalio.contrib.openai_agents import OpenAIAgentsPlugin
@@ -237,6 +241,7 @@ async def main():
 ```
 
 **Key Benefits:**
+
 - ✅ Clean separation of concerns - each component has one responsibility
 - ✅ Agent tool calls are durable and automatically retried by Temporal
 - ✅ Full execution history visible in Temporal UI
@@ -245,6 +250,7 @@ async def main():
 - ✅ Proper sandbox configuration with `with_passthrough_modules()`
 
 **Important Notes:**
+
 - Activity returns `dict` not string - LLM interprets structured data
 - Single parameter: `user_query` (no trace_id)
 - `Runner()` is instantiated (not just `Runner`)
@@ -297,6 +303,7 @@ class RoutingWorkflow:
 ```
 
 **Key Differences from Other Exercises:**
+
 - ❌ **NOT a Jupyter notebook** - uses separate Python files like production apps
 - ✅ **3-file pattern:** workflow.py (logic) + worker.py (execution) + starter.py (invocation)
 - ✅ **Multiple specialized agents** with handoff coordination
@@ -339,6 +346,7 @@ All workflows in this repository follow a consistent naming pattern for workflow
 **Example:** `durable-agent-wed-oct-16-094832est`
 
 **Implementation:**
+
 ```python
 from datetime import datetime
 import pytz
@@ -350,17 +358,20 @@ workflow_id = f"durable-agent-{now.strftime('%a-%b-%d-%I%M%S').lower()}est"
 ```
 
 **Benefits:**
+
 - Human-readable workflow IDs
 - Chronologically sortable in Temporal UI
 - Timezone-aware (EST) for workshop coordination
 - Consistent pattern across all exercises
 
 **Examples by Exercise:**
+
 - Exercise 2: `hello-workflow-thu-oct-16-095919est`
 - Exercise 3: `durable-agent-wed-oct-16-094832est`
 - Exercise 4: `routing-fri-oct-17-103045est`
 
 **Required Dependencies:**
+
 - Add `pytz` to pip install commands: `%pip install --quiet temporalio openai-agents httpx rich nest-asyncio pytz`
 - Import: `from datetime import datetime` and `import pytz`
 
