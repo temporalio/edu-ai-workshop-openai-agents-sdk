@@ -1,9 +1,18 @@
-.PHONY: setup env lint test temporal-up temporal-down clean
+.PHONY: setup env lint test temporal-up temporal-down clean pre-commit-install pre-commit-run
 
 setup:
 	@echo "Installing dependencies..."
 	pip install -e ".[dev]"
 	@echo "Setup complete!"
+
+pre-commit-install:
+	@echo "Installing pre-commit hooks..."
+	pre-commit install
+	@echo "Pre-commit hooks installed!"
+
+pre-commit-run:
+	@echo "Running pre-commit hooks on all files..."
+	pre-commit run --all-files
 
 env:
 	@python scripts/check_env.py

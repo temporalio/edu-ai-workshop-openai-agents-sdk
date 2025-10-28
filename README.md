@@ -149,6 +149,10 @@ make env            # Check environment variables (OPENAI_API_KEY)
 make lint           # Run code linters (ruff, mypy)
 make test           # Run test suite (mocked - no API key needed!)
 
+# 🪝 Pre-commit hooks (keeps notebooks clean!)
+make pre-commit-install  # Install pre-commit hooks (run once after setup)
+make pre-commit-run      # Run hooks on all files manually
+
 # ⚡ Temporal server
 # Use temporal_installation.ipynb notebook to install and start Temporal:
 #   1. Open temporal_installation.ipynb in VS Code
@@ -241,6 +245,23 @@ pgrep -f temporal
 3. Verify at http://localhost:8233
 
 The Temporal dev server must be running for exercises 2, 3, and 4! ⚡
+
+---
+
+**Problem:** Notebook outputs showing up in git commits ❌
+
+**Fix:** We use pre-commit hooks to automatically clear notebook outputs before committing! 🪝
+
+```bash
+# Install pre-commit hooks (run once after setup)
+make pre-commit-install
+
+# Hooks will automatically clear outputs on each commit
+# To manually run on all files:
+make pre-commit-run
+```
+
+This keeps notebooks clean and prevents merge conflicts! ✨
 
 ---
 
