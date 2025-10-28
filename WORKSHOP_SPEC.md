@@ -56,6 +56,56 @@ temporal-ai-agents-workshop/
 
 ---
 
+## 🏗️ Architecture Patterns
+
+The workshop teaches a progressive architecture pattern across exercises:
+
+### **Exercise 1: Basic Agent Pattern**
+
+```
+User Query 👤
+    ↓
+Agent (OpenAI LLM) 🤖
+    ↓
+Tool Function 🔧
+    ↓
+External API 🌐
+    ↓
+Response ✅
+```
+
+### **Exercise 2: Temporal Fundamentals**
+
+```
+Workflow Request 👤
+    ↓
+Temporal Workflow 🎭
+    ↓
+Temporal Activity ⚙️
+    ↓
+Result ✅
+```
+
+### **Exercise 3: Durable Agent (Integration)**
+
+```
+User Query 👤
+    ↓
+Temporal Workflow (orchestration layer) 🎭
+    ↓
+Activity: Call LLM with tools 🤖
+    ↓
+[If tool needed] Activity: Execute tool 🔧
+    ↓
+Activity: Get final LLM response 💬
+    ↓
+Return to user ✅
+```
+
+**Key Insight:** Each activity can retry independently, and the entire flow is durable! 💪
+
+---
+
 ## 🧩 Exercise Requirements
 
 ### **Exercise 1 – Agent Hello World**
