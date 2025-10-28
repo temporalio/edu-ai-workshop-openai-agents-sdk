@@ -134,7 +134,6 @@ This is a **90-minute workshop**: 30 minutes instruction + 4×15 minute exercise
 
 ```bash
 # 🔧 Setup and validation
-make setup          # Install all dependencies
 make env            # Check environment variables (OPENAI_API_KEY)
 
 # 🧹 Code quality
@@ -241,9 +240,8 @@ The Temporal dev server must be running for exercises 2, 3, and 4! ⚡
 **Problem:** Import errors when running exercises ❌
 
 ```bash
-# Reinstall dependencies
-make setup
-# Or: pip install -e ".[dev]"
+# Packages are installed per-exercise/solution in each notebook
+# Run the first cell of the notebook to install required dependencies
 ```
 
 ---

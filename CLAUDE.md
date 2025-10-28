@@ -28,7 +28,8 @@ All tool calls have to be real, no mocking. Use the [weather API](https://docs.t
 ### Setup & Environment
 
 ```bash
-make setup          # Install dependencies and set up environment
+# Installation is done via temporal_installation.ipynb
+# Packages are installed per-exercise in each notebook
 make env            # Validate environment variables (OPENAI_API_KEY)
 ```
 

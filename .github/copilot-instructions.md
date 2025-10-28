@@ -34,7 +34,6 @@ async def call_agent_with_tools(query: str, trace_id: str) -> str:
 ### Essential Commands
 
 ```bash
-make setup          # Install deps - ALWAYS run first
 make env            # Validate OPENAI_API_KEY - run before exercises 1,3,4
 make temporal-up    # Start Temporal server - REQUIRED for exercises 2,3,4
 make exercise-{1-4} # Run specific exercise
