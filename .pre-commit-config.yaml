@@ -2,12 +2,13 @@
 # See https://pre-commit.com for more information
 
 repos:
-  # Strip output from Jupyter notebooks using jupyter-nbconvert
+  # Strip output from Jupyter notebooks
   - repo: local
     hooks:
       - id: jupyter-nbconvert-clear
-        name: Clear notebook outputs
-        description: Clear outputs and execution counts from Jupyter notebooks
-        entry: jupyter nbconvert --clear-output --inplace
+        name: Strip notebook outputs
+        description: Strip outputs and execution counts from Jupyter notebooks
+        entry: python -m jupyter nbconvert --clear-output --inplace
         language: system
         files: \.ipynb$
+        pass_filenames: true

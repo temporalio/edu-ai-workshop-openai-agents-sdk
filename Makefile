@@ -5,7 +5,7 @@ setup:
 	pip install -e ".[dev]"
 	@echo "Setup complete!"
 
-pre-commit-install:
+pre-commit-install: setup
 	@echo "Installing pre-commit hooks..."
 	pre-commit install
 	@echo "Pre-commit hooks installed!"

@@ -150,7 +150,8 @@ make lint           # Run code linters (ruff, mypy)
 make test           # Run test suite (mocked - no API key needed!)
 
 # 🪝 Pre-commit hooks (keeps notebooks clean!)
-make pre-commit-install  # Install pre-commit hooks (run once after setup)
+# ⚠️  IMPORTANT: Run 'make setup' first to install dependencies!
+make pre-commit-install  # Install pre-commit hooks (requires setup first)
 make pre-commit-run      # Run hooks on all files manually
 
 # ⚡ Temporal server
