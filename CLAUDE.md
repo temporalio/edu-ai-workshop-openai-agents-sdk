@@ -57,6 +57,64 @@ temporal server start-dev     # Start Temporal local dev server (idempotent)
 
 The workshop follows a progressive learning path:
 
+### Architecture Evolution Across Exercises 🏗️
+
+**Exercise 1: Basic Agent Pattern**
+```
+User Query 👤
+    ↓
+Agent (OpenAI LLM) 🤖
+    ↓
+Tool Function 🔧
+    ↓
+External API 🌐
+    ↓
+Response ✅
+```
+
+**Exercise 2: Temporal Fundamentals**
+```
+Workflow Request 👤
+    ↓
+Temporal Workflow 🎭
+    ↓
+Temporal Activity ⚙️
+    ↓
+Result ✅
+```
+
+**Exercise 3: Durable Agent (Integration)**
+```
+User Query 👤
+    ↓
+Temporal Workflow (orchestration layer) 🎭
+    ↓
+Activity: Call LLM with tools 🤖
+    ↓
+[If tool needed] Activity: Execute tool 🔧
+    ↓
+Activity: Get final LLM response 💬
+    ↓
+Return to user ✅
+```
+
+**Exercise 4: Multi-Agent Routing**
+```
+User Query 👤
+    ↓
+Temporal Workflow 🎭
+    ↓
+Activity: Triage Agent 🔍
+    ↓
+Activity: Handoff to Specialist 🔀
+    ↓
+Activity: Specialist Agent 💬
+    ↓
+Return to user ✅
+```
+
+### Exercise Details
+
 1. **Exercise 1 - Agent Hello World** (`exercises/01_agent_hello_world/`)
 
    - Minimal OpenAI Agents SDK usage with custom weather tool calling the [National Weather Service API](https://docs.temporal.io/ai-cookbook/tool-calling-python#create-the-activity-for-the-tool-invocation)

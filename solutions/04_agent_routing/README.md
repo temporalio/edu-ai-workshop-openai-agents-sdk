@@ -12,22 +12,48 @@
 - Build production-ready multi-agent systems with Temporal
 - Understand how to structure real Temporal applications (separate files for workflow, worker, starter)
 
-## Architecture
+## Architecture Pattern 🏗️
 
 This exercise demonstrates the **routing pattern** where a triage agent analyzes incoming requests and delegates to specialized agents:
 
+### High-Level Flow
+
 ```
-User Query (any language)
+User Query (any language) 👤
     ↓
-Temporal Workflow 🎭
+Temporal Workflow (orchestration layer) 🎭
     ↓
-Triage Agent 🔍
+Triage Agent (language detection) 🔍
     ├─→ French Agent 🇫🇷 (if French detected)
     ├─→ Spanish Agent 🇪🇸 (if Spanish detected)
     └─→ English Agent 🇬🇧 (if English detected)
     ↓
 Response in appropriate language ✅
 ```
+
+### Detailed Flow with Temporal Activities
+
+```
+User Query 👤
+    ↓
+Temporal Workflow (orchestration layer) 🎭
+    ↓
+Activity: Call Triage Agent 🤖
+    ↓
+[Triage agent analyzes language]
+    ↓
+Activity: Handoff to Specialist Agent 🔀
+    ↓
+Activity: Specialist Agent processes query 💬
+    ↓
+Return response to user ✅
+```
+
+**Key Benefits:**
+- ✅ Each agent handoff is managed by Temporal
+- ✅ Automatic retries if agent calls fail
+- ✅ Full execution history in Temporal UI
+- ✅ Production-ready multi-agent architecture
 
 ## Prerequisites
 
