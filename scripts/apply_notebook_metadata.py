@@ -15,14 +15,21 @@ import nbformat
 
 # Shared configuration that all notebooks should use.
 KERNELSPEC = {
-    "display_name": "Python 3",
+    "display_name": "Python 3.11.14",
     "language": "python",
     "name": "python3",
 }
 
 LANGUAGE_INFO = {
     "name": "python",
-    "version": "3.11.13",
+    "version": "3.11.14",
+}
+
+# VS Code-specific metadata to auto-select the kernel
+VSCODE_METADATA = {
+    "interpreter": {
+        "hash": "default",
+    },
 }
 
 # Default locations that contain notebooks for the workshop.
@@ -64,6 +71,12 @@ def apply_metadata(notebook_path: Path) -> bool:
         updated_info = language_info.copy()
         updated_info.update(LANGUAGE_INFO)
         metadata["language_info"] = updated_info
+        changed = True
+
+    # Add VS Code metadata for auto-kernel selection
+    vscode = metadata.get("vscode", {})
+    if vscode.get("interpreter") != VSCODE_METADATA["interpreter"]:
+        metadata["vscode"] = VSCODE_METADATA.copy()
         changed = True
 
     if changed:
