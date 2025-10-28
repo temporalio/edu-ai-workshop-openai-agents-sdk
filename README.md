@@ -84,6 +84,8 @@ This is a **90-minute workshop**: 30 minutes instruction + 4×15 minute exercise
 
 **Time:** 15 minutes ⏱️
 
+📓 **[Exercise Notebook](exercises/01_agent_hello_world/exercise.ipynb)** | 📗 **[Solution Notebook](solutions/01_agent_hello_world/solution.ipynb)**
+
 ---
 
 ### Exercise 2: Temporal Hello World 🌊
@@ -97,6 +99,8 @@ This is a **90-minute workshop**: 30 minutes instruction + 4×15 minute exercise
 - 💪 Experience automatic retries
 
 **Time:** 15 minutes ⏱️
+
+📓 **[Exercise Notebook](exercises/02_temporal_hello_world/exercise.ipynb)** | 📗 **[Solution Notebook](solutions/02_temporal_hello_world/solution.ipynb)**
 
 ---
 
@@ -115,6 +119,8 @@ This is a **90-minute workshop**: 30 minutes instruction + 4×15 minute exercise
 
 **Time:** 15 minutes ⏱️
 
+📓 **[Exercise Notebook](exercises/03_durable_agent/exercise.ipynb)** | 📗 **[Solution Notebook](solutions/03_durable_agent/solution.ipynb)**
+
 ---
 
 ### Exercise 4: Routing Workflow 🔀
@@ -129,6 +135,8 @@ This is a **90-minute workshop**: 30 minutes instruction + 4×15 minute exercise
 - 🚀 Run production-style workflows with separate worker processes
 
 **Time:** 15 minutes ⏱️
+
+📁 **[Exercise Files](exercises/04_agent_routing/)** | 📗 **[Solution Files](solutions/04_agent_routing/)**
 
 ## 🛠️ Common Commands
 
