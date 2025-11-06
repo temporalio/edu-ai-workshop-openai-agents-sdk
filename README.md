@@ -1,7 +1,5 @@
 # 🤖 Temporal + OpenAI Agents SDK Workshop
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nadvolod/temporal-openai-agents-sdk)
-
 Learn to build **durable AI agents** using **OpenAI Agents SDK + Temporal** in this hands-on 90-minute workshop. Everything runs in GitHub Codespaces with zero local setup required! 🎉
 
 ## 🎯 What You'll Build
