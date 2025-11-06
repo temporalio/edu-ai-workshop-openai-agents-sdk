@@ -36,12 +36,15 @@ async def main() -> None:
     # worker = Worker(...)
 
     # TODO: Log worker startup
-    print(f"🚀 Worker started successfully")
-    print(f"📋 Task Queue: {TASK_QUEUE}")
-    print(f"⏳ Polling for tasks... (Press Ctrl+C to stop)\n")
+    # print(f"🚀 Worker started successfully")
+    # print(f"📋 Task Queue: {TASK_QUEUE}")
+    # print(f"⏳ Polling for tasks... (Press Ctrl+C to stop)\n")
 
     # TODO: Start the worker
     # await worker.run()
+    
+    # For now, the worker will exit immediately because TODOs are not complete
+    print("⚠️  Worker setup incomplete. Complete the TODOs above to run the worker.")
 
 
 if __name__ == "__main__":
