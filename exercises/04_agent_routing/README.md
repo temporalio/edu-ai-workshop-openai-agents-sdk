@@ -341,6 +341,12 @@ Real Temporal applications use separate files:
   2. Run each cell to install and start Temporal
 - Check: http://localhost:8233
 
+**Worker exits immediately after starting**
+- This happens when TODOs in `worker.py` are not completed
+- Complete all TODOs in `worker.py` to create and run the worker
+- You should see "⏳ Polling for tasks..." and the worker should continue running
+- If you see "⚠️ Worker setup incomplete", complete the TODOs first
+
 **Error: `No module named 'agents'`**
 - Run: `pip install openai-agents`
 
@@ -349,8 +355,8 @@ Real Temporal applications use separate files:
 - Reload terminal
 
 **Worker not picking up tasks**
-- Verify worker is running
-- Check task queue matches in worker and starter
+- Verify worker is running and showing "⏳ Polling for tasks..."
+- Check task queue matches in worker and starter (both should use `TASK_QUEUE`)
 
 ## Stretch Goals
 
