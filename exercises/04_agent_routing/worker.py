@@ -43,6 +43,7 @@ async def main() -> None:
     # TODO: Start the worker
     # await worker.run()
     
+    # TODO: Remove this line after completing the TODOs above
     # For now, the worker will exit immediately because TODOs are not complete
     print("⚠️  Worker setup incomplete. Complete the TODOs above to run the worker.")
 
