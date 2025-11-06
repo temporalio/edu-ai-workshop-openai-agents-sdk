@@ -35,6 +35,7 @@ By the end of this workshop, you'll understand how to:
      - Install the Temporal CLI
      - Start the Temporal dev server
    - Verify at: http://localhost:8233 ✅
+     - **In Codespaces:** Go to the **Ports** tab at the bottom of VS Code → Find port **8233** → Click the **Globe icon** 🌐 to open the Temporal Web UI
 5. You're ready to start the exercises! 🎓
 
 **Note:** All workshop instructions use the `temporal_installation.ipynb` notebook for Temporal setup. This ensures a consistent, reliable experience across all environments! 🎯
@@ -268,9 +269,13 @@ Then select the `temporal-workshop` kernel in your notebook! 🎯
 
 **Problem:** Can't access Temporal UI at localhost:8233 ❌
 
-**In Codespaces:** The port should be automatically forwarded. Check the "Ports" tab in VS Code and make sure port 8233 is forwarded and public. 🌐
+**In Codespaces:** The port should be automatically forwarded. To access it:
+1. Go to the **Ports** tab at the bottom of VS Code
+2. Find port **8233** 
+3. Click the **Globe icon** 🌐 to open the Temporal Web UI in your browser
+4. Make sure the port visibility is set to **Public** if you need to share it
 
-**Solution:** Make sure Temporal server is running using `temporal_installation.ipynb` and visit http://localhost:8233
+**Solution:** Make sure Temporal server is running using `temporal_installation.ipynb` and follow the Codespaces instructions above.
 
 ---
 

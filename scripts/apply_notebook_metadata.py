@@ -29,7 +29,6 @@ LANGUAGE_INFO = {
 DEFAULT_NOTEBOOK_LOCATIONS = (
     Path("exercises"),
     Path("solutions"),
-    Path("example-notebook"),
     Path("temporal_installation.ipynb"),
 )
 
