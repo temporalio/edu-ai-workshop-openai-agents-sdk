@@ -7,13 +7,13 @@ This script connects to Temporal and executes the routing workflow.
 """
 
 import asyncio
-from datetime import datetime
-import pytz
-from temporalio.client import Client
-from temporalio.contrib.openai_agents import OpenAIAgentsPlugin
+
+from dotenv import load_dotenv
 
 # Import workflow class and task queue from workflow module
-from workflow import RoutingWorkflow, TASK_QUEUE
+
+# Load environment variables from .env file (includes OPENAI_API_KEY)
+load_dotenv()
 
 
 async def main() -> None:

@@ -8,12 +8,17 @@ A worker polls the Temporal server for workflow tasks and executes them.
 
 import asyncio
 from datetime import timedelta
+
+from dotenv import load_dotenv
 from temporalio.client import Client
+from temporalio.contrib.openai_agents import ModelActivityParameters, OpenAIAgentsPlugin
 from temporalio.worker import Worker
-from temporalio.contrib.openai_agents import OpenAIAgentsPlugin, ModelActivityParameters
 
 # Import the workflow class that this worker will execute
 from workflow import RoutingWorkflow, TASK_QUEUE
+
+# Load environment variables from .env file (includes OPENAI_API_KEY)
+load_dotenv()
 
 
 async def main() -> None:
