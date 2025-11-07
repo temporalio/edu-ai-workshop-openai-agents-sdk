@@ -5,18 +5,19 @@
 
 ## Executive Summary
 
-This report documents **15 distinct issues** found while navigating through the workshop from a student's perspective. Issues range from **critical blocking problems** (broken tests, confusing setup) to **polish items** (emoji compatibility, documentation gaps).
+This report documents **17 distinct issues** found while navigating through the workshop from a student's perspective. Issues range from **critical blocking problems** (broken tests, confusing setup) to **polish items** (emoji compatibility, documentation gaps).
 
 **Key Findings:**
 - ✅ **Workshop structure is solid** - Good progression, clear TODOs, real-world examples
 - ❌ **Test suite is completely broken** - Cannot run `make test` successfully
 - ⚠️ **Temporal setup is confusing** - Two different methods mentioned without clarity
 - 📝 **Documentation has gaps** - Missing durability demo, unclear handoff pattern, no UI guide
+- 🔧 **Bootstrap script has outdated instructions** - References non-existent commands
 
 **Impact Assessment:**
 - **3 Critical issues** block workshop execution or validation
-- **7 High/Medium issues** cause student confusion or missing features
-- **5 Low priority issues** affect polish and professional presentation
+- **8 High/Medium issues** cause student confusion or missing features
+- **6 Low priority issues** affect polish and professional presentation
 
 Issues are categorized by severity and organized by exercise/component below.
 
@@ -612,6 +613,65 @@ print(f"🔗 View in Temporal UI: http://localhost:8233/namespaces/default/workf
 
 ---
 
+### 16. ⚠️ Bootstrap Script References Non-Existent Commands
+
+**Location:** `scripts/bootstrap.sh`  
+**Severity:** LOW  
+**Impact:** Students following bootstrap instructions get confused
+
+**Problem:**
+The bootstrap completion message references a command that doesn't exist:
+
+```bash
+echo "Next steps:"
+echo "  3. Run 'make exercise-1' to start the workshop"
+```
+
+**Issue:** `make exercise-1` doesn't exist in the Makefile. No exercise shortcuts are defined.
+
+**Student Impact:**
+- Copy/paste `make exercise-1` → Error: "No rule to make target 'exercise-1'"
+- Confusion about how to actually start exercises
+- No clear guidance on opening notebooks
+
+**Fix Required:**
+- Remove reference to non-existent command
+- Replace with: "Open exercises/01_agent_hello_world/exercise.ipynb in VS Code"
+
+---
+
+### 17. 🔄 Temporal Installation Notebook Has UX Issues
+
+**Location:** `temporal_installation.ipynb`  
+**Severity:** MEDIUM  
+**Impact:** Students unclear how to use the installation notebook
+
+**Problem:**
+The notebook's second cell starts Temporal server but provides no guidance:
+
+```python
+!~/.temporalio/bin/temporal server start-dev
+```
+
+**Issues:**
+1. **Cell blocks indefinitely** - Server runs in foreground, never completes
+2. **No explanation** - Students don't know this is expected
+3. **No guidance** - Unclear whether to keep running or restart elsewhere
+
+**Student Confusion:**
+- "Why is this cell still running?"
+- "Should I interrupt it?"
+- "How do I run exercises if this is blocking?"
+
+**Fix Required:**
+Add explanatory markdown cell before the server cell explaining:
+- Cell will block (expected behavior)
+- Leave notebook open with server running
+- Open exercises in new tabs
+- How to stop server when done
+
+---
+
 ## Positive Observations
 
 ### ✅ What Works Well
@@ -650,6 +710,8 @@ print(f"🔗 View in Temporal UI: http://localhost:8233/namespaces/default/workf
 12. **Add timeout explanations** - Document activity timeout choices
 13. **Standardize command examples** - README consistency improvements
 14. **Consider emoji alternatives** - For accessibility/compatibility
+15. **Fix bootstrap script** - Remove reference to non-existent `make exercise-1`
+16. **Improve temporal_installation.ipynb UX** - Add explanations for blocking behavior
 
 ---
 
