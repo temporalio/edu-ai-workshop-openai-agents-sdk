@@ -12,11 +12,17 @@ To run: python worker.py
 
 import asyncio
 from datetime import timedelta
-# Import the workflow class that this worker will execute
-from workflow import RoutingWorkflow, TASK_QUEUE
+
+from dotenv import load_dotenv
 from temporalio.client import Client
 from temporalio.contrib.openai_agents import ModelActivityParameters, OpenAIAgentsPlugin
 from temporalio.worker import Worker
+
+# Import the workflow class that this worker will execute
+from workflow import RoutingWorkflow, TASK_QUEUE
+
+# Load environment variables from .env file (includes OPENAI_API_KEY)
+load_dotenv()
 
 async def main():
     """
