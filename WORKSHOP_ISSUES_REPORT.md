@@ -120,6 +120,8 @@ with trace("Routing example"):
 5. Solution formats message as `TResponseInputItem` dict - instructions just use raw message
 6. Solution calls `result.to_input_list()` - not in instructions
 7. Solution prefixes return with "Response: " - not in instructions
+8. **Import mismatch**: Exercise imports `ChatCompletionMessageParam` which isn't used in solution
+9. **Import mismatch**: Solution imports `RunConfig, TResponseInputItem, trace` which aren't in exercise
 
 **Impact:**
 - Students following instructions will get different behavior than solution
@@ -137,7 +139,68 @@ with trace("Routing example"):
 
 ---
 
-### Issue #4: Conflicting Temporal Setup Instructions
+### Issue #4: Exercise 4 Missing Import Instructions
+
+**Severity:** Major - Code won't run  
+**Location:** `exercises/04_agent_routing/README.md` and `starter.py`, `worker.py`, `workflow.py`
+
+**Problem:**
+The Exercise 4 files have a comment saying "Import workflow class and task queue from workflow module" but:
+
+1. **starter.py line 13:**
+   ```python
+   # Import workflow class and task queue from workflow module
+   ```
+   But no actual imports provided, and README doesn't tell students what to import
+
+2. **README Step 4 tells students to use classes without importing:**
+   ```python
+   client = await Client.connect(
+       "localhost:7233",
+       plugins=[OpenAIAgentsPlugin()]
+   )
+   ```
+   But never says `from temporalio.client import Client`!
+
+3. **README Step 3 tells students to use classes without importing:**
+   ```python
+   client = await Client.connect(...)
+   worker = Worker(...)
+   ```
+   But never says to import `Worker`!
+
+**Missing Imports in Instructions:**
+
+**For starter.py:**
+- `from temporalio.client import Client`
+- `from temporalio.contrib.openai_agents import OpenAIAgentsPlugin`
+- `from workflow import RoutingWorkflow, TASK_QUEUE`
+- `from datetime import datetime`
+- `import pytz`
+
+**For worker.py:**
+- `from temporalio.client import Client`
+- `from temporalio.contrib.openai_agents import ModelActivityParameters, OpenAIAgentsPlugin`
+- `from temporalio.worker import Worker`
+- `from datetime import timedelta`
+
+**Impact:**
+- Students copy code from instructions and get `NameError: name 'Client' is not defined`
+- Extremely frustrating experience
+- Students have to guess imports or look at solution
+- Wastes significant workshop time
+
+**Student Experience:**
+"I copied the code exactly from the instructions but I'm getting NameError. The instructions don't tell me what to import!"
+
+**Recommendations:**
+1. Add a "Step 0: Import Required Modules" section to each file's instructions
+2. Show complete import block before code examples
+3. OR provide complete imports in the TODO skeleton files
+
+---
+
+### Issue #5: Conflicting Temporal Setup Instructions
 
 **Severity:** Major - Confusing setup process  
 **Locations:** Multiple files
@@ -197,7 +260,7 @@ echo "  2. Run 'make temporal-up' to start Temporal server"
 
 ---
 
-### Issue #5: Missing Makefile Targets Referenced in Documentation
+### Issue #6: Missing Makefile Targets Referenced in Documentation
 
 **Severity:** Major - Broken instructions  
 **Location:** `scripts/bootstrap.sh` line 38
@@ -244,7 +307,7 @@ Exercises are Jupyter notebooks that should be opened in VS Code or Jupyter Lab,
 
 ## 🟢 Minor Issues (Polish/Improvements)
 
-### Issue #6: Inconsistent "Exercise 4" Messaging
+### Issue #7: Inconsistent "Exercise 4" Messaging
 
 **Severity:** Minor - Clarity issue  
 **Location:** Multiple files
@@ -281,7 +344,7 @@ Exercise 4 is described inconsistently across documentation:
 
 ---
 
-### Issue #7: Temporal Installation Cell Behavior Unclear
+### Issue #8: Temporal Installation Cell Behavior Unclear
 
 **Severity:** Minor - User experience  
 **Location:** `temporal_installation.ipynb` Cell 4
@@ -320,7 +383,7 @@ When running `!command` in Jupyter:
 
 ---
 
-### Issue #8: Missing Visual Indicators in Documentation
+### Issue #9: Missing Visual Indicators in Documentation
 
 **Severity:** Minor - Documentation quality  
 **Location:** `README.md` and exercise READMEs
@@ -354,7 +417,7 @@ The image exists (`images/select-kernel.png`), but:
 
 ---
 
-### Issue #9: Python Version Specificity Unclear
+### Issue #10: Python Version Specificity Unclear
 
 **Severity:** Minor - Requirement clarity  
 **Location:** Multiple files
@@ -405,7 +468,7 @@ Select **Python 3.11** if prompted
 
 ---
 
-### Issue #10: Error Message Quality in check_env.py
+### Issue #11: Error Message Quality in check_env.py
 
 **Severity:** Minor - User experience  
 **Location:** `scripts/check_env.py`
@@ -538,17 +601,18 @@ Based on severity and student impact, here's the recommended fix order:
 1. ✅ **Issue #1**: Fix pyproject.toml setup failure (FIXED)
 2. **Issue #2**: Add tests directory or update CI
 3. **Issue #3**: Fix Exercise 4 instruction mismatch
-4. **Issue #4**: Standardize Temporal setup instructions
-5. **Issue #5**: Fix bootstrap script Makefile references
+4. **Issue #4**: Add missing import instructions for Exercise 4
+5. **Issue #5**: Standardize Temporal setup instructions
+6. **Issue #6**: Fix bootstrap script Makefile references
 
 ### P1 - Should Fix Soon
-6. **Issue #6**: Clarify Exercise 4 optional/required status
-7. **Issue #7**: Improve temporal_installation.ipynb UX
-8. **Issue #9**: Clarify Python version requirements
+7. **Issue #7**: Clarify Exercise 4 optional/required status
+8. **Issue #8**: Improve temporal_installation.ipynb UX
+9. **Issue #10**: Clarify Python version requirements
 
 ### P2 - Nice to Have
-9. **Issue #8**: Add more screenshots/visual guides
-10. **Issue #10**: Enhance check_env.py validation
+10. **Issue #9**: Add more screenshots/visual guides
+11. **Issue #11**: Enhance check_env.py validation
 
 ### P3 - Future Improvements
 - Observation #2: Add automated validation cells
@@ -587,14 +651,15 @@ To validate fixes and prevent regressions:
 
 ## 📝 Summary
 
-**Total Issues Found:** 10 major issues + 4 observations
+**Total Issues Found:** 11 major issues + 4 observations
 
 **Critical Blocking Issues:** 2
 - Setup failure (FIXED)
 - Missing tests directory
 
-**Major Confusing Issues:** 4
-- Exercise 4 mismatch
+**Major Confusing Issues:** 5
+- Exercise 4 instruction/solution mismatch
+- Exercise 4 missing import instructions
 - Temporal setup confusion
 - Missing Makefile targets
 - Inconsistent messaging
