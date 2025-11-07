@@ -5,7 +5,20 @@
 
 ## Executive Summary
 
-This report documents issues found while navigating through the workshop from a student's perspective. Issues are categorized by severity and organized by exercise/component.
+This report documents **15 distinct issues** found while navigating through the workshop from a student's perspective. Issues range from **critical blocking problems** (broken tests, confusing setup) to **polish items** (emoji compatibility, documentation gaps).
+
+**Key Findings:**
+- ✅ **Workshop structure is solid** - Good progression, clear TODOs, real-world examples
+- ❌ **Test suite is completely broken** - Cannot run `make test` successfully
+- ⚠️ **Temporal setup is confusing** - Two different methods mentioned without clarity
+- 📝 **Documentation has gaps** - Missing durability demo, unclear handoff pattern, no UI guide
+
+**Impact Assessment:**
+- **3 Critical issues** block workshop execution or validation
+- **7 High/Medium issues** cause student confusion or missing features
+- **5 Low priority issues** affect polish and professional presentation
+
+Issues are categorized by severity and organized by exercise/component below.
 
 ## Critical Issues (Blocking Workshop Progress)
 
@@ -22,17 +35,20 @@ This report documents issues found while navigating through the workshop from a 
 
 **Current State:**
 ```python
-# test_exercise_01.py - WRONG
+# test_exercise_01.py - WRONG PATH
 from solutions.ex01_agent_hello_world.main import get_weather
-# Actual directory: solutions/01_agent_hello_world/
+# Expected: solutions/01_agent_hello_world/
+# Actual: Only solution.ipynb exists (not a Python module)
 
 # test_exercise_02.py - SYNTAX ERROR
 from solutions.02_temporal_hello_world.activities import process_data
-# Python sees "02" as a decimal literal, not a module name
+# Python sees "02" as decimal literal: 0.2_temporal_hello_world
+# Module names cannot start with numbers
 
 # test_exercise_03.py - SYNTAX ERROR  
 from solutions.03_durable_agent.activities import get_weather
-# Python sees "03" as a decimal literal, not a module name
+# Python sees "03" as decimal literal: 0.3_durable_agent
+# Module names cannot start with numbers
 ```
 
 **Error Output:**
@@ -46,9 +62,19 @@ ERROR tests/test_exercise_03.py - SyntaxError: invalid decimal literal
 - Instructors cannot run `make test` to validate setup
 - Students attempting to verify their solutions will get confusing errors
 - Zero test coverage for the workshop exercises
+- CI/CD pipeline fails, blocking automated validation
+
+**Root Cause:**
+The tests were written for a Python module structure that doesn't exist. Solutions are Jupyter notebooks (`.ipynb` files), but tests try to import from Python modules with classes/functions. This is a **fundamental architecture mismatch**.
+
+**Correct Approaches:**
+1. **Option A:** Extract code from notebooks and run as Python scripts
+2. **Option B:** Use `nbconvert` to convert notebooks to Python, then import
+3. **Option C:** Mock the expected behavior without importing actual code
+4. **Option D:** Remove tests and rely on manual validation (not recommended)
 
 **Fix Required:**
-Solution notebooks need to be restructured as proper Python modules, or tests need to extract/run notebook code directly.
+Choose and implement one of the approaches above. Most realistic: Use nbconvert or restructure solutions as both notebooks AND Python modules.
 
 ---
 
