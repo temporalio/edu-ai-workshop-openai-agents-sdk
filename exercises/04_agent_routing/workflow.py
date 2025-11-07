@@ -8,8 +8,7 @@ language agents using the handoff pattern.
 """
 
 from temporalio import workflow
-from agents import Agent, Runner
-from openai.types.chat import ChatCompletionMessageParam
+from agents import Agent, RunConfig, Runner, TResponseInputItem, trace
 
 # Task queue name for this workflow pattern
 TASK_QUEUE = "routing-workflow-queue"
@@ -23,6 +22,13 @@ def french_agent() -> Agent:
     - Has name "French Agent"
     - Only speaks French
     - Uses "gpt-4" model
+
+    Example structure:
+        return Agent(
+            name="French Agent",
+            instructions="You only speak French. Respond naturally to user queries in French.",
+            model="gpt-4",
+        )
     """
     # TODO: Implement French agent
     pass
@@ -36,6 +42,13 @@ def spanish_agent() -> Agent:
     - Has name "Spanish Agent"
     - Only speaks Spanish
     - Uses "gpt-4" model
+
+    Example structure:
+        return Agent(
+            name="Spanish Agent",
+            instructions="You only speak Spanish. Respond naturally to user queries in Spanish.",
+            model="gpt-4",
+        )
     """
     # TODO: Implement Spanish agent
     pass
@@ -49,6 +62,13 @@ def english_agent() -> Agent:
     - Has name "English Agent"
     - Only speaks English
     - Uses "gpt-4" model
+
+    Example structure:
+        return Agent(
+            name="English Agent",
+            instructions="You only speak English. Respond naturally to user queries in English.",
+            model="gpt-4",
+        )
     """
     # TODO: Implement English agent
     pass
@@ -63,6 +83,18 @@ def triage_agent() -> Agent:
     - Detects language and routes to appropriate specialist
     - Has handoffs to all three language agents
     - Uses "gpt-4" model
+
+    Example structure:
+        return Agent(
+            name="Triage Agent",
+            instructions=(
+                "You are a triage agent. Analyze the language of the user's query "
+                "and handoff to the appropriate language specialist agent. "
+                "Detect if the query is in French, Spanish, or English, then route accordingly."
+            ),
+            handoffs=[french_agent(), spanish_agent(), english_agent()],
+            model="gpt-4",
+        )
     """
     # TODO: Implement triage agent with handoffs
     pass
@@ -77,22 +109,33 @@ class RoutingWorkflow:
     """
 
     @workflow.run
-    async def run(self, user_query: str) -> str:
+    async def run(self, msg: str) -> str:
         """
         Execute the routing workflow with language detection and handoff.
 
         Args:
-            user_query: The user's input in any language (French/Spanish/English)
+            msg: The user's input in any language (French/Spanish/English)
 
         Returns:
-            The specialist agent's response in the appropriate language
+            The specialist agent's response in the appropriate language (formatted string)
 
         TODO: Implement the workflow run method:
-        1. Format the user query as a ChatCompletionMessageParam with role="user"
-        2. Execute the triage agent with: await Runner.run(triage_agent(), new_message)
-        3. Extract and return result.final_output
+        1. Create a RunConfig instance: config = RunConfig()
+        2. Wrap execution in trace context: with trace("Routing example"):
+        3. Format the user query as input list:
+           inputs: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
+        4. Execute the triage agent with:
+           result = await Runner.run(
+               triage_agent(),
+               input=inputs,
+               run_config=config,
+           )
+        5. Log handoff completion: workflow.logger.info("Handoff completed")
+        6. Return formatted result: return f"Response: {result.final_output}"
 
-        Hint: Runner.run() takes (agent, message) - no config parameter needed!
+        Note: The parameter names are important:
+        - Use input=inputs (not just passing inputs as positional argument)
+        - Use run_config=config (not config=config)
         """
         # TODO: Implement workflow execution logic
         pass

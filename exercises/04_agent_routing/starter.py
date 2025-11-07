@@ -4,13 +4,25 @@ Workflow starter for the routing workflow pattern.
 TODO: Complete the starter implementation below.
 
 This script connects to Temporal and executes the routing workflow.
+It demonstrates how to:
+- Connect a client with OpenAI Agents SDK plugin
+- Start a workflow with a unique ID
+- Pass query parameters to the workflow
+- Wait for and display results
+
+To run: python starter.py
 """
 
 import asyncio
+from datetime import datetime
 
+import pytz
 from dotenv import load_dotenv
+from temporalio.client import Client
+from temporalio.contrib.openai_agents import OpenAIAgentsPlugin
 
 # Import workflow class and task queue from workflow module
+from workflow import RoutingWorkflow, TASK_QUEUE
 
 # Load environment variables from .env file (includes OPENAI_API_KEY)
 load_dotenv()
@@ -23,51 +35,51 @@ async def main() -> None:
     TODO: Complete this function to:
     1. Connect to Temporal server at "localhost:7233" with OpenAIAgentsPlugin
     2. Generate a workflow ID with timestamp (use pytz for EST)
-    3. Choose a query in French, Spanish, or English
-    4. Start the workflow using client.start_workflow()
-    5. Wait for and display the result
+    3. Choose a query: "Hi! Tell me a tongue twister."
+    4. Print starting information (workflow ID)
+    5. Execute the workflow using client.execute_workflow()
+    6. Print the Temporal UI link and result
+
+    Example workflow ID generation:
+        est = pytz.timezone("US/Eastern")
+        now = datetime.now(est)
+        workflow_id = f"routing-{now.strftime('%a-%b-%d-%I%M%S').lower()}est"
+
+    Example workflow execution:
+        result = await client.execute_workflow(
+            RoutingWorkflow.run,
+            query,
+            id=workflow_id,
+            task_queue=TASK_QUEUE,
+        )
+
+    Note: Use execute_workflow() (not start_workflow()) to run and wait for result in one call
     """
     # TODO: Connect to Temporal client with OpenAIAgentsPlugin
-    # client = await Client.connect(...)
+    # Hint: await Client.connect("localhost:7233", plugins=[OpenAIAgentsPlugin()])
 
     # TODO: Generate workflow ID with EST timestamp
     # Format: "routing-{day}-{month}-{date}-{time}est"
-    # est = pytz.timezone("US/Eastern")
-    # now = datetime.now(est)
-    # workflow_id = f"routing-{now.strftime('%a-%b-%d-%I%M%S').lower()}est"
+    # Hint: Use pytz.timezone("US/Eastern") and datetime.now()
 
-    # Sample queries in different languages
-    queries = [
-        "Bonjour! Comment allez-vous aujourd'hui?",  # French
-        "¡Hola! ¿Cómo estás hoy?",  # Spanish
-        "Hello! How are you doing today?",  # English
-    ]
-
-    # TODO: Choose a query to test
-    # query = queries[0]  # Change index to test different languages
+    # TODO: Define the query to test
+    # Use: "Hi! Tell me a tongue twister."
 
     # TODO: Print starting information
-    # print("🚀 Starting Routing Workflow")
-    # print(f"📋 Workflow ID: {workflow_id}")
-    # print(f"💬 Query: {query}\n")
+    # Print: 🚀 Starting Routing Workflow
+    # Print: 📋 Workflow ID: {workflow_id}
 
-    # TODO: Start the workflow
-    # handle = await client.start_workflow(...)
+    # TODO: Execute the workflow and get result
+    # Hint: Use client.execute_workflow(RoutingWorkflow.run, query, id=workflow_id, task_queue=TASK_QUEUE)
 
-    # TODO: Print workflow started message and Temporal UI link
-    # print(f"✅ Workflow started: {handle.id}")
-    # print(f"🔗 View in Temporal UI: http://localhost:8233/namespaces/default/workflows/{workflow_id}\n")
-    # print("⏳ Waiting for agent response...\n")
-
-    # TODO: Wait for workflow result
-    # result = await handle.result()
+    # TODO: Print Temporal UI link
+    # Print: 🔗 View in Temporal UI: http://localhost:8233/namespaces/default/workflows/{workflow_id}
+    # Print: ⏳ Waiting for agent response...
 
     # TODO: Display the result
-    # print("=" * 70)
-    # print("🤖 Agent Response")
-    # print("=" * 70)
-    # print(result)
-    # print("=" * 70)
+    # Print: 💬 Agent Response: {result}
+
+    pass
 
 
 if __name__ == "__main__":

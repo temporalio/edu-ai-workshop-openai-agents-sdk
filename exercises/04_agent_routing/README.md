@@ -65,7 +65,7 @@ Before starting this exercise, ensure you have:
 # Start Temporal using temporal_installation.ipynb notebook:
 #   1. Open temporal_installation.ipynb in VS Code
 #   2. Run each cell to install Temporal CLI and start the dev server
-#   3. Verify at http://localhost:8233
+#   3. Verify In Codespaces: Go to the **Ports** tab → Find port **8233** → Click the **Globe icon** 🌐
 ```
 
 Verify at: http://localhost:8233
@@ -74,10 +74,9 @@ Verify at: http://localhost:8233
 
 ```bash
 # Install from this directory
+cd exercises/04_agent_routing
 pip install -r requirements.txt
 
-# Or from project root:
-pip install temporalio openai-agents httpx rich pytz
 ```
 
 ### 3. Environment Variables Set
@@ -148,7 +147,17 @@ from agents import Agent
 return Agent(
     name="...",
     instructions="...",
-    handoffs=[...],  # Only for triage agent
+    model="gpt-4"
+)
+```
+
+For the triage agent, add the `handoffs` parameter:
+
+```python
+return Agent(
+    name="Triage Agent",
+    instructions="...",
+    handoffs=[french_agent(), spanish_agent(), english_agent()],
     model="gpt-4"
 )
 ```
@@ -157,21 +166,39 @@ return Agent(
 
 **In `workflow.py`, complete the `RoutingWorkflow.run()` method:**
 
-1. Format the user query as a message:
+1. Create a RunConfig instance:
    ```python
-   new_message: ChatCompletionMessageParam = {
-       "role": "user",
-       "content": user_query,
-   }
+   config = RunConfig()
    ```
-2. Execute the triage agent:
+
+2. Wrap execution in a trace context:
    ```python
-   result = await Runner.run(triage_agent(), new_message)
+   with trace("Routing example"):
    ```
-3. Extract and return the final output:
+
+3. Format the user query as input:
    ```python
-   return result.final_output
+   inputs: list[TResponseInputItem] = [{"content": msg, "role": "user"}]
    ```
+
+4. Execute the triage agent with proper parameters:
+   ```python
+   result = await Runner.run(
+       triage_agent(),
+       input=inputs,
+       run_config=config,
+   )
+   ```
+
+5. Log handoff completion and return formatted result:
+   ```python
+   workflow.logger.info("Handoff completed")
+   return f"Response: {result.final_output}"
+   ```
+
+**Important:** Note the parameter names in `Runner.run()`:
+- Use `input=inputs` (not just passing inputs directly)
+- Use `run_config=config` (not `config=config`)
 
 ### Step 3: Implement the Worker
 
@@ -200,7 +227,15 @@ return Agent(
    )
    ```
 
-3. Run the worker:
+3. Log worker startup:
+   ```python
+   print(f"🚀 Worker started successfully")
+   print(f"📋 Task Queue: {TASK_QUEUE}")
+   print(f"🔄 Workflows: {[w.__name__ for w in [RoutingWorkflow]]}")
+   print(f"⏳ Polling for tasks... (Press Ctrl+C to stop)\n")
+   ```
+
+4. Run the worker:
    ```python
    await worker.run()
    ```
@@ -224,14 +259,20 @@ return Agent(
    workflow_id = f"routing-{now.strftime('%a-%b-%d-%I%M%S').lower()}est"
    ```
 
-3. Choose a query (try different languages!):
+3. Choose a query to test:
    ```python
-   query = queries[0]  # French query
+   query = "Hi! Tell me a tongue twister."
    ```
 
-4. Start the workflow:
+4. Print starting information:
    ```python
-   handle = await client.start_workflow(
+   print("🚀 Starting Routing Workflow")
+   print(f"📋 Workflow ID: {workflow_id}")
+   ```
+
+5. Execute the workflow and get result:
+   ```python
+   result = await client.execute_workflow(
        RoutingWorkflow.run,
        query,
        id=workflow_id,
@@ -239,10 +280,11 @@ return Agent(
    )
    ```
 
-5. Wait for and display result:
+6. Print Temporal UI link and result:
    ```python
-   result = await handle.result()
-   print(result)
+   print(f"🔗 View in Temporal UI: http://localhost:8233/namespaces/default/workflows/{workflow_id}\n")
+   print("⏳ Waiting for agent response...\n")
+   print(f"💬 Agent Response: {result}")
    ```
 
 ### Step 5: Run the Workflow
