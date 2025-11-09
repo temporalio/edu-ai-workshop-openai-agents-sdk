@@ -61,7 +61,7 @@ async def main() -> None:
         print(f"🚀 Worker started successfully")
         print(f"📋 Task Queue: {TASK_QUEUE}")
         print(f"🔄 Workflows: {[w.__name__ for w in [RoutingWorkflow]]}")
-        print(f"⏳ Polling for tasks... (Press Ctrl+C to stop)\\n")
+        print(f"⏳ Polling for tasks... (Press Ctrl+C to stop)\n")
     """
     # TODO: Connect to Temporal client with OpenAIAgentsPlugin
     # Hint: Use Client.connect() with localhost:7233 and OpenAIAgentsPlugin
