@@ -37,7 +37,7 @@ async def main() -> None:
     2. Generate a workflow ID with timestamp (use pytz for EST)
     3. Choose a query: "Hi! Tell me a tongue twister."
     4. Print starting information (workflow ID)
-    5. Execute the workflow using client.execute_workflow()
+    5. Start the workflow using client.start_workflow()
     6. Print the Temporal UI link and result
 
     Example workflow ID generation:
