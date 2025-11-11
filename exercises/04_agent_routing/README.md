@@ -123,10 +123,9 @@ Before starting this exercise, make sure you have:
 # Start Temporal using temporal_installation.ipynb notebook:
 #   1. Open temporal_installation.ipynb in VS Code
 #   2. Run each cell to install Temporal CLI and start the dev server
-#   3. Verify In Codespaces: Go to the **Ports** tab → Find port **8233** → Click the **Globe icon** 🌐
 ```
 
-**Verify at:** http://localhost:8233 ✅
+**Verify In Codespaces:** Go to the **Ports** tab → Find port **8233** → Click the **Globe icon** 🌐
 
 ### 2️⃣ Dependencies Installed 📦
 

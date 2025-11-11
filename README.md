@@ -87,8 +87,7 @@ By the end of this workshop, you'll understand how to:
        <li>Start the Temporal dev server</li>
      </ul>
    </li>
-   <li>Verify at: http://localhost:8233 ✅</li>
-   <li><strong>In Codespaces:</strong> Go to the <strong>Ports</strong> tab at the bottom of VS Code → Find port <strong>8233</strong> → Click the <strong>Globe icon</strong> 🌐 to open the Temporal Web UI</li>
+   <li><strong>Verify In Codespaces:</strong> Go to the <strong>Ports</strong> tab at the bottom of VS Code → Find port <strong>8233</strong> → Click the <strong>Globe icon</strong> 🌐 to open the Temporal Web UI</li>
    </ul>
 </td>
 </tr>
@@ -278,7 +277,7 @@ make test           # Run test suite (mocked - no API key needed!)
 # Use temporal_installation.ipynb notebook to install and start Temporal:
 #   1. Open temporal_installation.ipynb in VS Code
 #   2. Run each cell to install Temporal CLI and start dev server
-#   3. Verify at http://localhost:8233
+#   3. Verify In Codespaces: Go to the **Ports** tab → Find port **8233** → Click the **Globe icon** 🌐
 
 # 📓 Working with exercises
 # Exercises 1-3 are Jupyter notebooks:
@@ -429,7 +428,7 @@ pgrep -f temporal
 **✅ Fix:** Use the `temporal_installation.ipynb` notebook to install and start Temporal:
 1. Open `temporal_installation.ipynb` in VS Code
 2. Run each cell to install Temporal CLI and start the dev server
-3. Verify at http://localhost:8233
+3. **Verify In Codespaces:** Go to the **Ports** tab → Find port **8233** → Click the **Globe icon** 🌐
 
 ⚠️ The Temporal dev server must be running for exercises 2, 3, and 4! ⚡
 
@@ -608,7 +607,7 @@ pip install -e ".[dev]"
 
 - Remind students to use `temporal_installation.ipynb` notebook to install and start Temporal
 - Walk through opening the notebook and running each cell
-- Show them how to verify at http://localhost:8233
+- Show them how to verify In Codespaces: Go to the **Ports** tab → Find port **8233** → Click the **Globe icon** 🌐
 - Verify EARLY before Exercise 2!
 
 </details>
