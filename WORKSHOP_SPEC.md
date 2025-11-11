@@ -1,28 +1,85 @@
-# Temporal + OpenAI Agents SDK – 90-min Codespaces Workshop Repo Spec
+# 🎓 Temporal + OpenAI Agents SDK – 90-min Codespaces Workshop Repo Spec
+
+<div align="center">
+
+**📋 The Master Blueprint 📋**
+
+*Everything you need to know about this workshop's architecture*
+
+🏗️ 🎯 📚 ⚡
+
+</div>
+
+---
 
 ## 🎯 Goal (Outcome, not Tasks)
 
+<div align="center">
+
+**🚀 Mission Statement 🚀**
+
+</div>
+
 Create a GitHub Codespaces-ready repository that teaches beginner→intermediate Python devs how to build **durable AI agents** using **OpenAI Agents SDK + Temporal** in **90 minutes**: 30 min instruction + 4×15 min exercises. Everything must run with **zero local setup**.
+
+> 💡 **Success Criteria**: A complete beginner can go from "What's Temporal?" to "I built a production-ready AI agent!" in one session!
 
 ---
 
 ## 🚫 Non-Goals
 
-- No secret keys in repo.
-- No complex frameworks; keep code short, didactic, and runnable <60s after Codespace boots.
-- No advanced agent orchestration beyond durability, retries, state, and tracing.
+<div align="center">
+
+**⛔ What This Workshop Is NOT ⛔**
+
+</div>
+
+- ❌ No secret keys in repo (security first! 🔒)
+- ❌ No complex frameworks; keep code short, didactic, and runnable <60s after Codespace boots
+- ❌ No advanced agent orchestration beyond durability, retries, state, and tracing
+- ❌ Not a deep dive into ML/AI theory (this is practical engineering! 🛠️)
+
+> 🎯 **Focus**: Hands-on, practical, production-ready patterns only!
 
 ---
 
 ## 🧰 Tech Stack
 
-- Python 3.11
-- `openai` (Agents SDK)
-- `temporalio`
-- `rich`, `typer`, `pytest`, `ruff`, `mypy`
-- Temporal CLI (local dev server)
-- GitHub Codespaces (devcontainer)
-- Optional: Node only if required by Temporal Web
+<div align="center">
+
+**🔧 The Tools We Use 🔧**
+
+*Batteries included!*
+
+</div>
+
+<table>
+<tr>
+<td width="150px"><strong>Core</strong></td>
+<td>
+• Python 3.11 🐍<br>
+• <code>openai</code> (Agents SDK) 🤖<br>
+• <code>temporalio</code> ⚡
+</td>
+</tr>
+<tr>
+<td><strong>Tooling</strong></td>
+<td>
+• <code>rich</code>, <code>typer</code> 🎨<br>
+• <code>pytest</code>, <code>ruff</code>, <code>mypy</code> ✅<br>
+• Temporal CLI (local dev server) 🛠️
+</td>
+</tr>
+<tr>
+<td><strong>Infrastructure</strong></td>
+<td>
+• GitHub Codespaces (devcontainer) ☁️<br>
+• Optional: Node (if required by Temporal Web) 🟩
+</td>
+</tr>
+</table>
+
+> 💡 **Everything is pre-configured!** Just click and code!
 
 ---
 
@@ -58,51 +115,82 @@ temporal-ai-agents-workshop/
 
 ## 🏗️ Architecture Patterns
 
+<div align="center">
+
+**🎓 The Learning Progression 🎓**
+
+*From simple to sophisticated!*
+
+</div>
+
 The workshop teaches a progressive architecture pattern across exercises:
 
-### **Exercise 1: Basic Agent Pattern**
+### **Exercise 1: Basic Agent Pattern** 🤖
 
 ```
-User Query 👤
-    ↓
-Agent (OpenAI LLM) 🤖
-    ↓
-Tool Function 🔧
-    ↓
-External API 🌐
-    ↓
-Response ✅
+       User Query 👤
+           ↓
+   Agent (OpenAI LLM) 🤖
+           ↓
+     Tool Function 🔧
+           ↓
+     External API 🌐
+           ↓
+       Response ✅
 ```
 
-### **Exercise 2: Temporal Fundamentals**
+> 🎯 **Learning Goal**: Understand how AI agents use tools
+
+---
+
+### **Exercise 2: Temporal Fundamentals** 🌊
 
 ```
-Workflow Request 👤
-    ↓
-Temporal Workflow 🎭
-    ↓
-Temporal Activity ⚙️
-    ↓
-Result ✅
+   Workflow Request 👤
+           ↓
+   Temporal Workflow 🎭
+           ↓
+   Temporal Activity ⚙️
+           ↓
+        Result ✅
 ```
 
-### **Exercise 3: Durable Agent (Integration)**
+> 🎯 **Learning Goal**: Understand workflows, activities, and durability
+
+---
+
+### **Exercise 3: Durable Agent (Integration)** 🛡️
 
 ```
-User Query 👤
-    ↓
-Temporal Workflow (orchestration layer) 🎭
-    ↓
-Activity: Call LLM with tools 🤖
-    ↓
-[If tool needed] Activity: Execute tool 🔧
-    ↓
-Activity: Get final LLM response 💬
-    ↓
-Return to user ✅
+       User Query 👤
+           ↓
+   ┌───────────────────────────┐
+   │ Temporal Workflow         │  🎭 Orchestration
+   │ (orchestration layer)     │
+   └───────────────────────────┘
+           ↓
+   ┌───────────────────────────┐
+   │ Activity: Call LLM        │  🤖 AI Decision
+   │    with tools             │
+   └───────────────────────────┘
+           ↓
+      [If tool needed]
+           ↓
+   ┌───────────────────────────┐
+   │ Activity: Execute tool    │  🔧 Take Action
+   └───────────────────────────┘
+           ↓
+   ┌───────────────────────────┐
+   │ Activity: Get final       │  💬 Final Response
+   │    LLM response           │
+   └───────────────────────────┘
+           ↓
+       Return to user ✅
 ```
 
-**Key Insight:** Each activity can retry independently, and the entire flow is durable! 💪
+**🌟 Key Insight:** Each activity can retry independently, and the entire flow is durable! 💪
+
+> 🎯 **Learning Goal**: Combine AI agents with Temporal for production durability
 
 ---
 
