@@ -55,7 +55,7 @@ By the end of this workshop, you'll understand how to:
 <table>
 <tr>
 <td width="50px">1️⃣</td>
-<td>Click the "Open in GitHub Codespaces" badge above 👆</td>
+<td>Open in GitHub Codespaces</td>
 </tr>
 <tr>
 <td>2️⃣</td>
