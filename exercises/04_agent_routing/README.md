@@ -121,8 +121,8 @@ Before starting this exercise, make sure you have:
 
 ```bash
 # Start Temporal using temporal_installation.ipynb notebook:
-#   1. Open temporal_installation.ipynb in VS Code
-#   2. Run each cell to install Temporal CLI and start the dev server
+   1. Open temporal_installation.ipynb in VS Code
+   2. Run each cell to install Temporal CLI and start the dev server
 ```
 
 **Verify In Codespaces:** Go to the **Ports** tab → Find port **8233** → Click the **Globe icon** 🌐
@@ -137,17 +137,10 @@ pip install -r requirements.txt
 
 ### 3️⃣ Environment Variables Set 🔑
 
-Ensure your `.env` file in the project root contains:
+Ensure your `.env` file in the project root contains. (You should have already done this in step 03 of the Quickstart of the main README):
 
 ```bash
 OPENAI_API_KEY=your_api_key_here
-```
-
-**Verify with:**
-
-```bash
-# From project root
-make env
 ```
 
 > ⚠️ **Important**: All three must be ready before you start!
