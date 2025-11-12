@@ -20,9 +20,11 @@
 
 </div>
 
-Create a GitHub Codespaces-ready repository that teaches beginner→intermediate Python devs how to build **durable AI agents** using **OpenAI Agents SDK + Temporal** in **90 minutes**: 30 min instruction + 4×15 min exercises. Everything must run with **zero local setup**.
+Create a GitHub Codespaces-ready repository that teaches beginner→intermediate Python devs how to build **durable AI agents** using **OpenAI Agents SDK + Temporal** in **90 minutes**: 30 min instruction + 4×15 min hands-on activities. Everything must run with **zero local setup**.
 
-> 💡 **Success Criteria**: A complete beginner can go from "What's Temporal?" to "I built a production-ready AI agent!" in one session!
+**Workshop Approach**: Students work through complete, working implementations in the `solutions/` directory during the workshop, learning by exploring and running production-quality code. After the workshop, the `exercises/` directory provides optional homework for students to practice building everything from scratch.
+
+> 💡 **Success Criteria**: A complete beginner can go from "What's Temporal?" to "I built a production-ready AI agent!" in one session by following along with working code!
 
 ---
 
@@ -87,14 +89,16 @@ Create a GitHub Codespaces-ready repository that teaches beginner→intermediate
 
 ```
 temporal-ai-agents-workshop/
-├── exercises/
-│   ├── 01_agent_hello_world/
-│   ├── 02_temporal_hello_world/
-│   └── 03_durable_agent/
-├── solutions/
-│   ├── 01_agent_hello_world/
-│   ├── 02_temporal_hello_world/
-│   └── 03_durable_agent/
+├── solutions/                       # 👈 Primary workshop materials
+│   ├── 01_agent_hello_world/       # Complete working implementation
+│   ├── 02_temporal_hello_world/    # Complete working implementation
+│   ├── 03_durable_agent/           # Complete working implementation
+│   └── 04_agent_routing/           # Complete working implementation
+├── exercises/                       # 👈 Optional homework activities
+│   ├── 01_agent_hello_world/       # Starter code for practice
+│   ├── 02_temporal_hello_world/    # Starter code for practice
+│   ├── 03_durable_agent/           # Starter code for practice
+│   └── 04_agent_routing/           # Starter code for practice
 ├── slides/
 ├── scripts/
 │   ├── bootstrap.sh
@@ -198,30 +202,41 @@ The workshop teaches a progressive architecture pattern across exercises:
 
 ---
 
-## 🧩 Exercise Requirements
+## 🧩 Activity Requirements
 
-### **Exercise 1 – Agent Hello World**
+### **Activity 1 – Agent Hello World**
 
-- Minimal agent: model + system instructions + 1 tool.
-- Include “handoff” stub (commented).
-- Run with: `make exercise-1`
+- Complete working implementation in `solutions/01_agent_hello_world/solution.ipynb`
+- Starter code with TODOs in `exercises/01_agent_hello_world/exercise.ipynb`
+- Minimal agent: model + system instructions + 1 tool
+- Include "handoff" stub (commented)
 
-### **Exercise 2 – Temporal Hello World**
+### **Activity 2 – Temporal Hello World**
 
-- 1 workflow + 1 activity in Python.
-- Commands: `make temporal-up` → `make exercise-2`
+- Complete working implementation in `solutions/02_temporal_hello_world/solution.ipynb`
+- Starter code with TODOs in `exercises/02_temporal_hello_world/exercise.ipynb`
+- 1 workflow + 1 activity in Python
 
-### **Exercise 3 – Durable Agent**
+### **Activity 3 – Durable Agent**
 
-- Wrap LLM/tool calls in **activities** with retries.
-- Persist state via workflow; include a `trace_id`.
-- Print Temporal UI URL and `trace_id` for correlation.
-- Run with: `make exercise-3`
+- Complete working implementation in `solutions/03_durable_agent/solution.ipynb`
+- Starter code with TODOs in `exercises/03_durable_agent/exercise.ipynb`
+- Wrap LLM/tool calls in **activities** with retries
+- Persist state via workflow; include a `trace_id`
+- Print Temporal UI URL and `trace_id` for correlation
 
-Each exercise includes its own README:
+### **Activity 4 – Agent Routing**
 
-- Goal, Steps (≤5), Expected Output, Stretch Goal, Timebox (15 min).
-- Mirror `/solutions/*` directories with concise, commented solutions.
+- Complete working implementation in `solutions/04_agent_routing/` (workflow.py, worker.py, starter.py)
+- Starter code with TODOs in `exercises/04_agent_routing/`
+- Multi-agent routing with language detection
+- Production file structure
+
+Each directory includes its own README:
+
+- Goal, Steps (≤5), Expected Output, Stretch Goal, Timebox (15 min)
+- Solutions are complete, well-commented implementations for workshop use
+- Exercises contain starter code with TODO markers for homework practice
 
 ---
 
@@ -288,7 +303,7 @@ Each exercise includes its own README:
 
 ## 📦 Deliverables
 
-- Full repo above, runnable in Codespaces with all exercises, solutions, and CI passing.
+- Full repo above, runnable in Codespaces with all activities (solutions for workshop, exercises for homework), and CI passing.
 
 ---
 
@@ -296,7 +311,7 @@ Each exercise includes its own README:
 
 **Tighten code & retries:**
 
-> Refactor `exercises/03_durable_agent/activities.py` to show explicit Temporal retry options and add logs before/after LLM calls. Keep under 40 lines.
+> Refactor `solutions/03_durable_agent/solution.ipynb` to show explicit Temporal retry options and add logs before/after LLM calls. Ensure exercises/ has corresponding TODOs for students.
 
 **Observability polish:**
 
@@ -308,7 +323,7 @@ Each exercise includes its own README:
 
 **Docs clarity:**
 
-> Write `/exercises/03_durable_agent/README.md`: Goal, Steps (≤5), Expected Output, Stretch Goal, Timebox (15 min). Include two screenshot placeholders.
+> Write `/solutions/03_durable_agent/README.md` and `/exercises/03_durable_agent/README.md`: Goal, Steps (≤5), Expected Output, Stretch Goal, Timebox (15 min). Include two screenshot placeholders.
 
 **CI without real keys:**
 
@@ -319,9 +334,11 @@ Each exercise includes its own README:
 ## 🧭 Workshop Runbook (Slide Notes)
 
 1. Launch Codespace (60s setup).
-2. Walk through `make exercise-1` (Hello World Agent).
-3. Explain workflows/activities → run `make exercise-2`.
-4. Merge both → run `make exercise-3` (Durable Agent).
-5. Show traces in Temporal UI + OpenAI console.
-6. Summarize durability, retries, and state.
-7. Wrap up and Q&A.
+2. Walk through `solutions/01_agent_hello_world/solution.ipynb` together (Hello World Agent).
+3. Explain workflows/activities → explore `solutions/02_temporal_hello_world/solution.ipynb`.
+4. Merge both → walk through `solutions/03_durable_agent/solution.ipynb` (Durable Agent - THE KEY ACTIVITY).
+5. Demo `solutions/04_agent_routing/` production structure with multiple agents.
+6. Show traces in Temporal UI + OpenAI console.
+7. Summarize durability, retries, and state.
+8. Remind students: practice building from scratch using `exercises/` directory as homework.
+9. Wrap up and Q&A.

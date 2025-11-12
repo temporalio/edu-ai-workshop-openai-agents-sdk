@@ -85,7 +85,10 @@ By the end of this workshop, you'll understand how to:
 </tr>
 <tr>
 <td>5️⃣</td>
-<td><strong>You're ready to start the exercises! 🎓</strong></td>
+<td><strong>You're ready to start the workshop! 🎓</strong>
+<br><br>
+💡 <strong>Workshop Flow:</strong> During the session, you'll work through the complete solutions in <code>solutions/</code>, learning by exploring and running working code. After the workshop, you can practice building everything yourself using <code>exercises/</code> as homework!
+</td>
 </tr>
 </table>
 
@@ -97,30 +100,34 @@ By the end of this workshop, you'll understand how to:
 
 ### ⏱️ **90 Minutes to Mastery** ⏱️
 
-*30 min instruction + 4×15 min exercises*
+*30 min instruction + 4×15 min hands-on activities*
 
 📊 **Progress Bar**: `[░░░░░░░░░░] 0%` → `[██████████] 100%` 🎉
 
 </div>
 
-**Exercises 1-3** are **Jupyter notebooks** 📓 for interactive learning.  
-**Exercise 4** uses **separate Python files** 📁 to demonstrate production-ready Temporal applications!
+**Activities 1-3** are **Jupyter notebooks** 📓 for interactive learning.  
+**Activity 4** uses **separate Python files** 📁 to demonstrate production-ready Temporal applications!
+
+**During the workshop**: You'll work through the complete implementations in the `solutions/` directory, learning by exploring, running, and modifying working code.
+
+**After the workshop**: Practice building everything from scratch using the `exercises/` directory as optional homework!
 
 ### 📂 Repository Navigation
 
 ```
 📁 temporal-openai-agents-sdk/
-├── 📓 exercises/                    # 👈 Work here during the workshop
-│   ├── 01_agent_hello_world/       # Exercise 1 - OpenAI agent basics (.ipynb)
-│   ├── 02_temporal_hello_world/    # Exercise 2 - Temporal fundamentals (.ipynb)
-│   ├── 03_durable_agent/           # Exercise 3 - Combine both! 🎯 (.ipynb)
-│   └── 04_agent_routing/           # Exercise 4 - Routing workflow (.py files)
+├── 📗 solutions/                    # 👈 Work here during the workshop
+│   ├── 01_agent_hello_world/       # Workshop Activity 1 - OpenAI agent basics (.ipynb)
+│   ├── 02_temporal_hello_world/    # Workshop Activity 2 - Temporal fundamentals (.ipynb)
+│   ├── 03_durable_agent/           # Workshop Activity 3 - Combine both! 🎯 (.ipynb)
+│   └── 04_agent_routing/           # Workshop Activity 4 - Routing workflow (.py files)
 │
-├── 📗 solutions/                    # 👈 Compare your work
-│   ├── 01_agent_hello_world/       # Solution notebook
-│   ├── 02_temporal_hello_world/    # Solution notebook
-│   ├── 03_durable_agent/           # Solution notebook
-│   └── 04_agent_routing/           # Solution Python files (workflow.py, worker.py, starter.py)
+├── 📓 exercises/                    # 👈 Extra homework activities (optional)
+│   ├── 01_agent_hello_world/       # Homework: Build your own agent (.ipynb)
+│   ├── 02_temporal_hello_world/    # Homework: Practice workflows (.ipynb)
+│   ├── 03_durable_agent/           # Homework: Create durable agent (.ipynb)
+│   └── 04_agent_routing/           # Homework: Implement routing (.py files)
 │
 ├── 🛠️  scripts/                     # Helper scripts (bootstrap, env checks)
 ├── 📝 Makefile                     # Common commands (setup, lint, test)
@@ -128,19 +135,21 @@ By the end of this workshop, you'll understand how to:
 └── 📖 README.md                    # 👋 You are here!
 ```
 
-## 🎓 Workshop Exercises
+## 🎓 Workshop Activities
 
 <div align="center">
 
 ### 🎢 **Your Learning Journey** 🎢
 
-*From zero to hero in four exercises!*
+*From zero to hero in four activities!*
 
 </div>
 
+**During the workshop**, you'll work through the complete solutions in the `solutions/` directory. These are fully implemented examples that you'll explore, run, and learn from. After the workshop, you can practice building them yourself using the `exercises/` directory as homework!
+
 ---
 
-### 🌍 Exercise 1: Agent Hello World
+### 🌍 Activity 1: Agent Hello World
 
 <div align="center">
 
@@ -160,13 +169,13 @@ By the end of this workshop, you'll understand how to:
 
 **Time:** ⏱️ 15 minutes
 
-📓 **[Exercise Notebook](exercises/01_agent_hello_world/exercise.ipynb)** | 📗 **[Solution Notebook](solutions/01_agent_hello_world/solution.ipynb)**
+📗 **[Workshop Notebook](solutions/01_agent_hello_world/solution.ipynb)** | 📓 **[Homework: Build Your Own](exercises/01_agent_hello_world/exercise.ipynb)**
 
 > 💪 **Challenge**: Can your agent handle weather queries for multiple cities at once?
 
 ---
 
-### 🌊 Exercise 2: Temporal Hello World
+### 🌊 Activity 2: Temporal Hello World
 
 <div align="center">
 
@@ -186,17 +195,17 @@ By the end of this workshop, you'll understand how to:
 
 **Time:** ⏱️ 15 minutes
 
-📓 **[Exercise Notebook](exercises/02_temporal_hello_world/exercise.ipynb)** | 📗 **[Solution Notebook](solutions/02_temporal_hello_world/solution.ipynb)**
+📗 **[Workshop Notebook](solutions/02_temporal_hello_world/solution.ipynb)** | 📓 **[Homework: Build Your Own](exercises/02_temporal_hello_world/exercise.ipynb)**
 
 > 🎯 **Pro Tip**: The Temporal UI is your best friend for debugging—explore it thoroughly!
 
 ---
 
-### 🛡️ Exercise 3: Durable Agent
+### 🛡️ Activity 3: Durable Agent
 
 <div align="center">
 
-**⭐ THE KEY EXERCISE ⭐**
+**⭐ THE KEY ACTIVITY ⭐**
 
 *Where AI meets unbreakable reliability!*
 
@@ -211,17 +220,17 @@ By the end of this workshop, you'll understand how to:
 - 📊 Add observability with trace IDs
 - 🚀 Build production-ready AI agents
 
-**🎯 This is the KEY exercise!** Everything comes together here! 🎯
+**🎯 This is the KEY activity!** Everything comes together here! 🎯
 
 **Time:** ⏱️ 15 minutes
 
-📓 **[Exercise Notebook](exercises/03_durable_agent/exercise.ipynb)** | 📗 **[Solution Notebook](solutions/03_durable_agent/solution.ipynb)**
+📗 **[Workshop Notebook](solutions/03_durable_agent/solution.ipynb)** | 📓 **[Homework: Build Your Own](exercises/03_durable_agent/exercise.ipynb)**
 
 > 🌟 **Mind Blown Moment**: Your agent code doesn't change—Temporal just wraps it with superpowers!
 
 ---
 
-### 🔀 Exercise 4: Routing Workflow
+### 🔀 Activity 4: Routing Workflow
 
 <div align="center">
 
@@ -242,7 +251,7 @@ By the end of this workshop, you'll understand how to:
 
 **Time:** ⏱️ 15 minutes
 
-📁 **[Exercise Files](exercises/04_agent_routing/)** | 📁 **[Solution Files](solutions/04_agent_routing/)**
+📁 **[Workshop Files](solutions/04_agent_routing/)** | 📁 **[Homework: Build Your Own](exercises/04_agent_routing/)**
 
 > 🚀 **Next Level**: This is how real production systems are structured!
 
@@ -271,22 +280,22 @@ make test           # Run test suite (mocked - no API key needed!)
 #   2. Run each cell to install Temporal CLI and start dev server
 #   3. Verify In Codespaces: Go to the **Ports** tab → Find port **8233** → Click the **Globe icon** 🌐
 
-# 📓 Working with exercises
-# Exercises 1-3 are Jupyter notebooks:
-#   exercises/01_agent_hello_world/exercise.ipynb
-#   exercises/02_temporal_hello_world/exercise.ipynb
-#   exercises/03_durable_agent/exercise.ipynb
-#
-# Exercise 4 uses separate Python files (production pattern):
-#   cd exercises/04_agent_routing
-#   python worker.py    # Terminal 1
-#   python starter.py   # Terminal 2
-#
-# Compare with solutions at:
+# 📓 Working with the workshop
+# During the workshop, work through solutions/ notebooks:
 #   solutions/01_agent_hello_world/solution.ipynb
 #   solutions/02_temporal_hello_world/solution.ipynb
 #   solutions/03_durable_agent/solution.ipynb
-#   solutions/04_agent_routing/  # Python files (workflow.py, worker.py, starter.py)
+#
+# Activity 4 uses separate Python files (production pattern):
+#   cd solutions/04_agent_routing
+#   python worker.py    # Terminal 1
+#   python starter.py   # Terminal 2
+#
+# After the workshop, practice building your own in exercises/:
+#   exercises/01_agent_hello_world/exercise.ipynb
+#   exercises/02_temporal_hello_world/exercise.ipynb
+#   exercises/03_durable_agent/exercise.ipynb
+#   exercises/04_agent_routing/  # Python files (workflow.py, worker.py, starter.py)
 ```
 
 > 💡 **Pro Tip**: Run `make setup` first thing, every time!
@@ -551,11 +560,11 @@ pip install -e ".[dev]"
 </tr>
 <tr>
 <td><strong>15:00-30:00</strong></td>
-<td>🏃 Exercise 1 + Q&A</td>
+<td>🏃 Walk through Activity 1 solution notebook together + Q&A</td>
 </tr>
 <tr>
 <td><strong>30:00-35:00</strong></td>
-<td>✅ Solution to 1</td>
+<td>✅ Discussion & key takeaways from Activity 1</td>
 </tr>
 <tr>
 <td><strong>35:00-40:00</strong></td>
@@ -563,11 +572,11 @@ pip install -e ".[dev]"
 </tr>
 <tr>
 <td><strong>40:00-55:00</strong></td>
-<td>🏃 Exercise 2 + Q&A</td>
+<td>🏃 Walk through Activity 2 solution notebook together + Q&A</td>
 </tr>
 <tr>
 <td><strong>55:00-60:00</strong></td>
-<td>✅ Solution to 2</td>
+<td>✅ Discussion & key takeaways from Activity 2</td>
 </tr>
 <tr>
 <td><strong>60:00-65:00</strong></td>
@@ -575,11 +584,11 @@ pip install -e ".[dev]"
 </tr>
 <tr>
 <td><strong>65:00-80:00</strong></td>
-<td>🏃 Exercise 3 (THE KEY EXERCISE! 🎯)</td>
+<td>🏃 Walk through Activity 3 solution notebook (THE KEY ACTIVITY! 🎯)</td>
 </tr>
 <tr>
 <td><strong>80:00-90:00</strong></td>
-<td>🎉 Exercise 4 (Optional) + Wrap-up</td>
+<td>🎉 Demo Activity 4 (production patterns) + Wrap-up</td>
 </tr>
 </table>
 
@@ -605,11 +614,11 @@ pip install -e ".[dev]"
 </details>
 
 <details>
-<summary><strong>3️⃣ Confusion between exercise and solution</strong> 📓</summary>
+<summary><strong>3️⃣ Confusion between workshop and homework</strong> 📓</summary>
 
-- Clearly explain: work in `exercises/`, compare with `solutions/`
-- Solution notebooks are complete standalone implementations
-- Encourage trying before peeking! 👀
+- Clearly explain: work through `solutions/` during the workshop, practice building your own in `exercises/` afterward
+- Solution notebooks are complete implementations to learn from during the workshop
+- Exercises are for independent practice after the workshop (optional homework)
 
 </details>
 
@@ -625,17 +634,19 @@ pip install -e ".[dev]"
 <details>
 <summary><strong>5️⃣ Notebook vs Python files</strong> 📝</summary>
 
-- Exercises 1-3 are Jupyter notebooks (`.ipynb`)
-- Exercise 4 uses separate Python files (workflow.py, worker.py, starter.py)
-- Emphasize Exercise 4 demonstrates production application structure
+- Activities 1-3 are Jupyter notebooks (`.ipynb`) - work through `solutions/` during workshop
+- Activity 4 uses separate Python files (workflow.py, worker.py, starter.py)
+- Emphasize Activity 4 demonstrates production application structure
+- After workshop, students can practice building their own using `exercises/` directory
 
 </details>
 
 ### Key Teaching Points 🎯
 
 <details>
-<summary><strong>Exercise 1: Agent Foundations</strong> 🤖</summary>
+<summary><strong>Activity 1: Agent Foundations</strong> 🤖</summary>
 
+- Walk through the complete solution notebook together
 - Emphasize tool calling as the foundation of agentic behavior
 - Show how the agent decides to use tools
 - Highlight the real API integration (National Weather Service)
@@ -644,8 +655,9 @@ pip install -e ".[dev]"
 </details>
 
 <details>
-<summary><strong>Exercise 2: Temporal Magic</strong> 🌊</summary>
+<summary><strong>Activity 2: Temporal Magic</strong> 🌊</summary>
 
+- Walk through the solution notebook as a group
 - Show the Temporal UI extensively - it's powerful for debugging! 🔍
 - Walk through execution history
 - Demonstrate the retry mechanism
@@ -654,8 +666,9 @@ pip install -e ".[dev]"
 </details>
 
 <details>
-<summary><strong>Exercise 3: THE KEY MOMENT</strong> 🌟</summary>
+<summary><strong>Activity 3: THE KEY MOMENT</strong> 🌟</summary>
 
+- Guide students through the solution notebook
 - Show how activities make LLM calls durable
 - The agent code doesn't change - Temporal wraps it!
 - Emphasize: production-ready with zero agent modifications
@@ -664,8 +677,9 @@ pip install -e ".[dev]"
 </details>
 
 <details>
-<summary><strong>Exercise 4: Production Patterns</strong> 🔀</summary>
+<summary><strong>Activity 4: Production Patterns</strong> 🔀</summary>
 
+- Walk through the production file structure together
 - Language-based routing pattern (French/Spanish/English agents)
 - Handoff pattern enables agent-to-agent transitions
 - Demonstrates real Temporal application structure (separate worker/starter)
