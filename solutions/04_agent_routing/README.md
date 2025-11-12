@@ -1,10 +1,10 @@
-# 🔀 Exercise 4: Routing Workflow
+# 🔀 Activity 4: Routing Workflow
 
 <div align="center">
 
-**🌍 Multi-Language Agent Team - Solution 🌍**
+**🌍 Multi-Language Agent Team - Workshop Activity 🌍**
 
-*The complete implementation!*
+*Explore this complete implementation during the workshop!*
 
 ⚡ 🎯 🤖 🚀
 
@@ -15,6 +15,8 @@
 **Goal:** Build a routing workflow that intelligently distributes requests to specialized language agents using the handoff pattern.
 
 **Timebox:** ⏱️ 15 minutes
+
+**📚 Workshop Note:** During the workshop, you'll explore and run this complete solution. After the workshop, try building it yourself from scratch using the [exercise version](../../exercises/04_agent_routing/)!
 
 ## 🎓 What You'll Learn
 

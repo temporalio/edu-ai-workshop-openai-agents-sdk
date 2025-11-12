@@ -1,8 +1,8 @@
-# 🔀 Exercise 4: Routing Workflow
+# 🔀 Activity 4: Routing Workflow
 
 <div align="center">
 
-**🌍 Build a Polyglot Agent Team! 🌍**
+**🌍 Build a Polyglot Agent Team - Homework Exercise! 🌍**
 
 *French • Spanish • English — Your agents speak them all!*
 
@@ -15,6 +15,8 @@
 **Goal:** Build a routing workflow that intelligently distributes requests to specialized language agents using the handoff pattern.
 
 **Timebox:** ⏱️ 15 minutes
+
+**📚 Homework Note:** This is the practice version! Use this after the workshop to build the routing workflow from scratch. During the workshop, you explored the [complete solution](../../solutions/04_agent_routing/).
 
 ## 🎓 What You'll Learn
 
