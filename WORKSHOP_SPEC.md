@@ -136,7 +136,11 @@ The workshop teaches a progressive architecture pattern across exercises:
            ↓
      External API 🌐
            ↓
-       Response ✅
+   Data returned to Agent 📊
+           ↓
+   Agent uses LLM to generate response 💬
+           ↓
+     Return to user ✅
 ```
 
 > 🎯 **Learning Goal**: Understand how AI agents use tools

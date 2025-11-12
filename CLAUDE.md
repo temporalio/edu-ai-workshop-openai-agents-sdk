@@ -69,7 +69,11 @@ Tool Function 🔧
     ↓
 External API 🌐
     ↓
-Response ✅
+Data returned to Agent 📊
+    ↓
+Agent uses LLM to generate response 💬
+    ↓
+Return to user ✅
 ```
 
 **Exercise 2: Temporal Fundamentals**
@@ -93,7 +97,11 @@ Activity: Call LLM with tools 🤖
     ↓
 [If tool needed] Activity: Execute tool 🔧
     ↓
-Activity: Get final LLM response 💬
+External API Call 🌐
+    ↓
+Data returned to Agent 📊
+    ↓
+Agent leverages LLM to generate response 💬
     ↓
 Return to user ✅
 ```
