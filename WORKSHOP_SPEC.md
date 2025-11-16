@@ -6,6 +6,8 @@
 
 *Everything you need to know about this workshop's architecture*
 
+
+
 </div>
 
 ---
@@ -18,7 +20,7 @@
 
 </div>
 
-Create a GitHub Codespaces-ready repository that teaches beginner→intermediate Python devs how to build **durable AI agents** using **OpenAI Agents SDK + Temporal** in **90 minutes**: 30 min instruction + 4×15 min hands-on activities. Everything must run with **zero local setup**.
+Create a GitHub Codespaces-ready repository that teaches beginner→intermediate Python devs how to build **durable AI agents** using **OpenAI Agents SDK + Temporal** in **90 minutes**: 30 min instruction + 4×15 min hands-on exercises. Everything must run with **zero local setup**.
 
 **Workshop Approach**: Students work through complete, working implementations in the `solutions/` directory during the workshop, learning by exploring and running production-quality code. After the workshop, the `exercises/` directory provides optional homework for students to practice building everything from scratch.
 
@@ -92,7 +94,7 @@ temporal-ai-agents-workshop/
 │   ├── 02_temporal_hello_world/    # Complete working implementation
 │   ├── 03_durable_agent/           # Complete working implementation
 │   └── 04_agent_routing/           # Complete working implementation
-├── exercises/                       # Optional homework activities
+├── exercises/                       # 👈 Optional homework exercises
 │   ├── 01_agent_hello_world/       # Starter code for practice
 │   ├── 02_temporal_hello_world/    # Starter code for practice
 │   ├── 03_durable_agent/           # Starter code for practice
@@ -200,22 +202,22 @@ The workshop teaches a progressive architecture pattern across exercises:
 
 ---
 
-## Activity Requirements
+## 🧩 Exercise Requirements
 
-### **Activity 1 – Agent Hello World**
+### **Exercise 1 – Agent Hello World**
 
 - Complete working implementation in `solutions/01_agent_hello_world/solution.ipynb`
 - Starter code with TODOs in `exercises/01_agent_hello_world/exercise.ipynb`
 - Minimal agent: model + system instructions + 1 tool
 - Include "handoff" stub (commented)
 
-### **Activity 2 – Temporal Hello World**
+### **Exercise 2 – Temporal Hello World**
 
 - Complete working implementation in `solutions/02_temporal_hello_world/solution.ipynb`
 - Starter code with TODOs in `exercises/02_temporal_hello_world/exercise.ipynb`
 - 1 workflow + 1 activity in Python
 
-### **Activity 3 – Durable Agent**
+### **Exercise 3 – Durable Agent**
 
 - Complete working implementation in `solutions/03_durable_agent/solution.ipynb`
 - Starter code with TODOs in `exercises/03_durable_agent/exercise.ipynb`
@@ -223,7 +225,7 @@ The workshop teaches a progressive architecture pattern across exercises:
 - Persist state via workflow; include a `trace_id`
 - Print Temporal UI URL and `trace_id` for correlation
 
-### **Activity 4 – Agent Routing**
+### **Exercise 4 – Agent Routing**
 
 - Complete working implementation in `solutions/04_agent_routing/` (workflow.py, worker.py, starter.py)
 - Starter code with TODOs in `exercises/04_agent_routing/`
@@ -301,7 +303,7 @@ Each directory includes its own README:
 
 ## Deliverables
 
-- Full repo above, runnable in Codespaces with all activities (solutions for workshop, exercises for homework), and CI passing.
+- Full repo above, runnable in Codespaces with all exercises (solutions for workshop, exercises for homework), and CI passing.
 
 ---
 
