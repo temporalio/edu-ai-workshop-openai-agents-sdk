@@ -75,7 +75,6 @@ def triage_agent() -> Agent:
         instructions=(
             "You are a triage agent. Analyze the language of the user's query "
             "and handoff to the appropriate language specialist agent. "
-            "Detect if the query is in French, Spanish, or English, then route accordingly."
         ),
         # Provide list of specialist agents available for handoff
         # The triage agent will choose which specialist to invoke based on language

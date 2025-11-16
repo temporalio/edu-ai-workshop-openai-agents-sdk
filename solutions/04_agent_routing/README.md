@@ -4,7 +4,7 @@
 
 **🌍 Multi-Language Agent Team - Workshop Activity 🌍**
 
-*Explore this complete implementation during the workshop!*
+_Explore this complete implementation during the workshop!_
 
 ⚡ 🎯 🤖 🚀
 
@@ -102,6 +102,7 @@ This solution demonstrates the **routing pattern** where a triage agent analyzes
 ```
 
 **🌟 Key Benefits:**
+
 - ✅ Each agent handoff is managed by Temporal
 - ✅ Automatic retries if agent calls fail
 - ✅ Full execution history in Temporal UI
@@ -160,7 +161,7 @@ make env
 
 **🏗️ Production-Ready Architecture 🏗️**
 
-*This is how the pros do it!*
+_This is how the pros do it!_
 
 </div>
 
@@ -191,8 +192,9 @@ solutions/04_agent_routing/
 </table>
 
 > 💡 **Why separate files?** This mirrors production Temporal applications and enables:
+>
 > - ✅ Independent deployment of workers
-> - ✅ Multiple workers for horizontal scaling  
+> - ✅ Multiple workers for horizontal scaling
 > - ✅ Different starters for different use cases
 > - ✅ Clean separation of concerns
 
@@ -256,6 +258,7 @@ solutions/04_agent_routing/
 Open a terminal in this directory and start the worker:
 
 ```bash
+cd cd solutions/04_agent_routing/
 python worker.py
 ```
 
@@ -283,7 +286,15 @@ python worker.py
 Open a **new terminal** in this directory and run the starter:
 
 ```bash
+# With default English query
+cd solutions/04_agent_routing/
+
 python starter.py
+
+# Or pass a custom query as a command line argument
+python starter.py "¡Hola! Cuéntame un trabalenguas."
+python starter.py "Bonjour! Comment allez-vous aujourd'hui?"
+python starter.py "Hello! How are you doing today?"
 ```
 
 **Expected output:**
@@ -291,22 +302,16 @@ python starter.py
 ```
 🚀 Starting Routing Workflow
 📋 Workflow ID: routing-wed-oct-16-103045est
-💬 Query: Bonjour! Comment allez-vous aujourd'hui?
+💬 Query: ¡Hola! Cuéntame un trabalenguas.
 
 ✅ Workflow started: routing-wed-oct-16-103045est
 🔗 View in Temporal UI: http://localhost:8233/namespaces/default/workflows/routing-wed-oct-16-103045est
 
 ⏳ Waiting for agent response...
 
-======================================================================
-🤖 Agent Response
-======================================================================
-Triage Agent: [routing decision]
+💬 Agent Response: Tres tristes tigres tragaban trigo en un trigal...
 
-Response: Bonjour! Je vais bien, merci! Comment puis-je vous aider aujourd'hui?
-======================================================================
-
-💡 The triage agent detected the language and routed to the specialist!
+💡 The triage agent detected the language and routed to the Spanish specialist!
 🔗 Check the Temporal UI to see the complete execution history
 ```
 
@@ -320,7 +325,7 @@ Response: Bonjour! Je vais bien, merci! Comment puis-je vous aider aujourd'hui?
 
 </div>
 
-1. **Open:** http://localhost:8233
+1. **Open Temporal UI**
 2. **Find** your workflow (search by workflow ID)
 3. **Observe:**
    - Workflow execution timeline
@@ -340,24 +345,23 @@ Response: Bonjour! Je vais bien, merci! Comment puis-je vous aider aujourd'hui?
 
 </div>
 
-**Modify `starter.py` to test other languages:**
+**Test different languages using command line arguments:**
 
-```python
-# In starter.py, around line 43-47, change the query:
+```bash
+# Test French
+python starter.py "Bonjour! Raconte-moi un virelangue."
 
-queries = [
-    "Bonjour! Comment allez-vous aujourd'hui?",  # 🇫🇷 French
-    "¡Hola! ¿Cómo estás hoy?",  # 🇪🇸 Spanish
-    "Hello! How are you doing today?",  # 🇬🇧 English
-]
+# Test Spanish
+python starter.py "¡Hola! Cuéntame un trabalenguas."
 
-# Change line 51 to test different languages:
-query = queries[1]  # Try Spanish
-# or
-query = queries[2]  # Try English
+# Test English
+python starter.py "Hi! Tell me a tongue twister."
+
+# Test mixed or edge cases
+python starter.py "Hello! ¿Cómo estás? Je vais bien."
 ```
 
-Then run `python starter.py` again and observe routing to different specialists!
+Then observe in the Temporal UI how the triage agent routes to different specialists!
 
 > 🌟 **Challenge**: Try mixed-language queries or edge cases!
 
@@ -436,6 +440,7 @@ The **routing pattern** (also called **triage pattern**) is a multi-agent archit
 </table>
 
 **🌟 Benefits:**
+
 - ✅ Separation of concerns (each agent has one job)
 - ✅ Scalable to many specialists
 - ✅ Clear decision boundaries
@@ -505,6 +510,7 @@ This solution uses a **3-file pattern** common in production:
 </table>
 
 **🌟 This separation enables:**
+
 - ✅ Independent deployment of workers
 - ✅ Multiple workers for horizontal scaling
 - ✅ Different starters for different use cases
@@ -524,6 +530,7 @@ This solution uses a **3-file pattern** common in production:
 <summary><strong>❌ Error: <code>Failed to connect to Temporal server</code></strong></summary>
 
 **Solution:**
+
 - Ensure Temporal is running using `temporal_installation.ipynb`:
   1. Open `temporal_installation.ipynb` in VS Code
   2. Run each cell to install and start Temporal
@@ -536,6 +543,7 @@ This solution uses a **3-file pattern** common in production:
 <summary><strong>❌ Error: <code>No module named 'agents'</code></strong></summary>
 
 **Solution:**
+
 ```bash
 pip install openai-agents
 ```
@@ -546,6 +554,7 @@ pip install openai-agents
 <summary><strong>❌ Error: <code>OPENAI_API_KEY is not set</code></strong></summary>
 
 **Solution:**
+
 - Add key to `.env` file in project root
 - Load environment: `source .env` or restart terminal
 - Verify with: `make env`
@@ -556,6 +565,7 @@ pip install openai-agents
 <summary><strong>⚠️ Worker not picking up tasks</strong></summary>
 
 **Solution:**
+
 - Verify worker is running (check terminal output)
 - Ensure task queue matches in worker and starter
 - Check worker logs for errors
@@ -567,6 +577,7 @@ pip install openai-agents
 <summary><strong>⏰ No response or timeout</strong></summary>
 
 **Solution:**
+
 - Check OPENAI_API_KEY is valid
 - Verify internet connection for OpenAI API calls
 - Increase timeout in `worker.py` if needed
@@ -583,7 +594,7 @@ pip install openai-agents
 
 **🌟 Level Up Your Skills! 🌟**
 
-*Extend this solution with advanced features!*
+_Extend this solution with advanced features!_
 
 </div>
 
@@ -671,7 +682,7 @@ Implement a workflow where the triage agent can route to multiple specialists in
 
 **🏆 Congratulations! 🏆**
 
-*You've completed the workshop!*
+_You've completed the workshop!_
 
 </div>
 

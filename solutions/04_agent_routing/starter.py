@@ -8,10 +8,12 @@ It demonstrates how to:
 - Pass query parameters to the workflow
 - Wait for and display results
 
-To run: python starter.py
+To run: python starter.py "Your query here"
+Example: python starter.py "¡Hola! Cuéntame un trabalenguas."
 """
 
 import asyncio
+import sys
 from datetime import datetime
 
 import pytz
@@ -20,7 +22,7 @@ from temporalio.client import Client
 from temporalio.contrib.openai_agents import OpenAIAgentsPlugin
 
 # Import workflow class and task queue from workflow module
-from workflow import RoutingWorkflow, TASK_QUEUE
+from workflow import TASK_QUEUE, RoutingWorkflow
 
 # Load environment variables from .env file (includes OPENAI_API_KEY)
 load_dotenv()
@@ -39,6 +41,12 @@ async def main():
 
     The workflow will route the query to the appropriate language specialist.
     """
+    # Get query from command line argument or use default
+    if len(sys.argv) > 1:
+        query = sys.argv[1]
+    else:
+        query = "Hi! Tell me a tongue twister."
+
     # Connect to local Temporal server
     # OpenAI Agents SDK plugin is required to coordinate agent execution
     client = await Client.connect(
@@ -59,13 +67,14 @@ async def main():
 
     print("🚀 Starting Routing Workflow")
     print(f"📋 Workflow ID: {workflow_id}")
+    print(f"💬 Query: {query}")
 
     # Start the workflow and get handle for tracking
     # Using start_workflow (not execute_workflow) returns handle immediately
     # This allows observing workflow progress before it completes
     handle = await client.start_workflow(
         RoutingWorkflow.run,  # Workflow method to execute
-        "Hi! Tell me a tongue twister.",  # User query parameter passed to workflow
+        query,  # User query parameter passed to workflow
         id=workflow_id,  # Unique workflow ID for tracking in Temporal UI
         task_queue=TASK_QUEUE,  # Queue where worker will pick up this workflow
     )
