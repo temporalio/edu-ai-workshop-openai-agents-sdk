@@ -258,7 +258,7 @@ solutions/04_agent_routing/
 Open a terminal in this directory and start the worker:
 
 ```bash
-cd cd solutions/04_agent_routing/
+cd solutions/04_agent_routing/
 python worker.py
 ```
 
