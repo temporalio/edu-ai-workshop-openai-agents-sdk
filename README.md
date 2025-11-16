@@ -6,71 +6,71 @@
 
 ---
 
-Learn to build **durable AI agents** using **OpenAI Agents SDK + Temporal** in this hands-on 90-minute workshop. Everything runs in GitHub Codespaces with zero local setup required! 🎉
+Learn to build **durable AI agents** using **OpenAI Agents SDK + Temporal** in this hands-on 90-minute workshop. Everything runs in GitHub Codespaces with zero local setup required.
 
-## 🎯 What You'll Build
+## What You'll Build
 
 <div align="center">
 
-### 💪 **Master Durable AI Agents** 💪
+### Master Durable AI Agents
 
 </div>
 
 By the end of this workshop, you'll understand how to:
 
-- ✨ **Create AI agents** with tool calling using OpenAI's Agents SDK
-- 🛡️ **Build durable workflows** with Temporal for reliability and retries
-- 🚀 **Combine both** to create production-ready AI agents that survive failures
-- 🤝 **Implement multi-agent systems** with handoff patterns
-- 🔍 **Observe and debug** agent execution using Temporal UI
+- **Create AI agents** with tool calling using OpenAI's Agents SDK
+- **Build durable workflows** with Temporal for reliability and retries
+- **Combine both** to create production-ready AI agents that survive failures
+- **Implement multi-agent systems** with handoff patterns
+- **Observe and debug** agent execution using Temporal UI
 
-> 💡 **Pro Tip**: These aren't just toy examples—you'll learn production patterns used by real companies!
+> **Pro Tip**: These aren't just toy examples—you'll learn production patterns used by real companies!
 
-## 📋 Prerequisites
+## Prerequisites
 
 <div align="center">
 
-🎒 **What You Need to Bring** 🎒
+**What You Need to Bring**
 
 </div>
 
-- 🐍 **Basic Python knowledge** - If you can write a function, you're ready!
-- 🔑 **OpenAI API key** - [Get one here](https://platform.openai.com/api-keys) (free tier works!)
-- 🐙 **GitHub account** - For Codespaces (who doesn't have one? 😉)
+- **Basic Python knowledge** - If you can write a function, you're ready!
+- **OpenAI API key** - [Get one here](https://platform.openai.com/api-keys) (free tier works!)
+- **GitHub account** - For Codespaces
 
-> 💰 **Cost Note**: The workshop uses ~$0.50-$1.00 of OpenAI API credits. Free tier is plenty!
+> **Cost Note**: The workshop uses ~$0.50-$1.00 of OpenAI API credits. Free tier is plenty!
 
-## 🚀 Quick Start
+## Quick Start
 
 <div align="center">
 
-### ⚡ **Ready, Set, Code!** ⚡
+### Ready, Set, Code!
 
 *Get started in under 2 minutes!*
 
 </div>
 
-### GitHub Codespaces (Recommended) ⭐
+### GitHub Codespaces (Recommended)
 
 <table>
 <tr>
-<td width="50px">1️⃣</td>
+<td width="50px">1.</td>
 <td>Open in GitHub Codespaces</td>
 </tr>
 <tr>
-<td>2️⃣</td>
-<td>Wait ~90 seconds for the environment to set up ⏱️ (perfect time for ☕)</td>
+<td>2.</td>
+<td>Wait ~90 seconds for the environment to set up</td>
 </tr>
 <tr>
-<td>3️⃣</td>
+<td>3.</td>
 <td>Add your OpenAI API key to <code>.env</code>:
    <pre>cp .env.sample .env
 # Edit .env and add your OPENAI_API_KEY</pre>
 </td>
 </tr>
 <tr>
-<td>4️⃣</td>
-<td>Install and start Temporal server using the notebook 📓:
+<td>4.</td>
+<td>Install and start Temporal server using the notebook:
    <ul>
    <li>Open <code>temporal_installation.ipynb</code> in VS Code</li>
    <li>Run each cell to:
@@ -79,67 +79,67 @@ By the end of this workshop, you'll understand how to:
        <li>Start the Temporal dev server</li>
      </ul>
    </li>
-   <li><strong>Verify In Codespaces:</strong> Go to the <strong>Ports</strong> tab at the bottom of VS Code → Find port <strong>8233</strong> → Click the <strong>Globe icon</strong> 🌐 to open the Temporal Web UI</li>
+   <li><strong>Verify In Codespaces:</strong> Go to the <strong>Ports</strong> tab at the bottom of VS Code → Find port <strong>8233</strong> → Click the <strong>Globe icon</strong> to open the Temporal Web UI</li>
    </ul>
 </td>
 </tr>
 <tr>
-<td>5️⃣</td>
-<td><strong>You're ready to start the workshop! 🎓</strong>
+<td>5.</td>
+<td><strong>You're ready to start the workshop!</strong>
 <br><br>
-💡 <strong>Workshop Flow:</strong> During the session, you'll work through the complete solutions in <code>solutions/</code>, learning by exploring and running working code. After the workshop, you can practice building everything yourself using <code>exercises/</code> as homework!
+<strong>Workshop Flow:</strong> During the session, you'll work through the complete solutions in <code>solutions/</code>, learning by exploring and running working code. After the workshop, you can practice building everything yourself using <code>exercises/</code> as homework!
 </td>
 </tr>
 </table>
 
-> 🎯 **Note:** All workshop instructions use the `temporal_installation.ipynb` notebook for Temporal setup. This ensures a consistent, reliable experience across all environments!
+> **Note:** All workshop instructions use the `temporal_installation.ipynb` notebook for Temporal setup. This ensures a consistent, reliable experience across all environments!
 
-## 📚 Workshop Structure
+## Workshop Structure
 
 <div align="center">
 
-### ⏱️ **90 Minutes to Mastery** ⏱️
+### 90 Minutes to Mastery
 
 *30 min instruction + 4×15 min hands-on activities*
 
-📊 **Progress Bar**: `[░░░░░░░░░░] 0%` → `[██████████] 100%` 🎉
+**Progress Bar**: `[░░░░░░░░░░] 0%` → `[██████████] 100%`
 
 </div>
 
-**Activities 1-3** are **Jupyter notebooks** 📓 for interactive learning.  
-**Activity 4** uses **separate Python files** 📁 to demonstrate production-ready Temporal applications!
+**Activities 1-3** are **Jupyter notebooks** for interactive learning.  
+**Activity 4** uses **separate Python files** to demonstrate production-ready Temporal applications!
 
 **During the workshop**: You'll work through the complete implementations in the `solutions/` directory, learning by exploring, running, and modifying working code.
 
 **After the workshop**: Practice building everything from scratch using the `exercises/` directory as optional homework!
 
-### 📂 Repository Navigation
+### Repository Navigation
 
 ```
-📁 temporal-openai-agents-sdk/
-├── 📗 solutions/                    # 👈 Work here during the workshop
+temporal-openai-agents-sdk/
+├── solutions/                       # Work here during the workshop
 │   ├── 01_agent_hello_world/       # Workshop Activity 1 - OpenAI agent basics (.ipynb)
 │   ├── 02_temporal_hello_world/    # Workshop Activity 2 - Temporal fundamentals (.ipynb)
-│   ├── 03_durable_agent/           # Workshop Activity 3 - Combine both! 🎯 (.ipynb)
+│   ├── 03_durable_agent/           # Workshop Activity 3 - Combine both (.ipynb)
 │   └── 04_agent_routing/           # Workshop Activity 4 - Routing workflow (.py files)
 │
-├── 📓 exercises/                    # 👈 Extra homework activities (optional)
+├── exercises/                       # Extra homework activities (optional)
 │   ├── 01_agent_hello_world/       # Homework: Build your own agent (.ipynb)
 │   ├── 02_temporal_hello_world/    # Homework: Practice workflows (.ipynb)
 │   ├── 03_durable_agent/           # Homework: Create durable agent (.ipynb)
 │   └── 04_agent_routing/           # Homework: Implement routing (.py files)
 │
-├── 🛠️  scripts/                     # Helper scripts (bootstrap, env checks)
-├── 📝 Makefile                     # Common commands (setup, lint, test)
-├── 📋 WORKSHOP_SPEC.md             # Workshop design specification
-└── 📖 README.md                    # 👋 You are here!
+├── scripts/                         # Helper scripts (bootstrap, env checks)
+├── Makefile                         # Common commands (setup, lint, test)
+├── WORKSHOP_SPEC.md                 # Workshop design specification
+└── README.md                        # You are here!
 ```
 
-## 🎓 Workshop Activities
+## Workshop Activities
 
 <div align="center">
 
-### 🎢 **Your Learning Journey** 🎢
+### Your Learning Journey
 
 *From zero to hero in four activities!*
 
@@ -149,11 +149,11 @@ By the end of this workshop, you'll understand how to:
 
 ---
 
-### 🌍 Activity 1: Agent Hello World
+### Activity 1: Agent Hello World
 
 <div align="center">
 
-**🤖 Your First AI Agent 🤖**
+**Your First AI Agent**
 
 *Build it, run it, watch it think!*
 
@@ -162,24 +162,24 @@ By the end of this workshop, you'll understand how to:
 **Goal:** Create a simple AI agent with tool calling using real weather data
 
 **What you'll learn:**
-- 🤖 Build your first OpenAI agent with a weather tool
-- 🔧 Understand the agent → tool → response flow
-- 💡 See how LLMs decide when to use tools
-- 🌐 Call real APIs (National Weather Service)
+- Build your first OpenAI agent with a weather tool
+- Understand the agent → tool → response flow
+- See how LLMs decide when to use tools
+- Call real APIs (National Weather Service)
 
-**Time:** ⏱️ 15 minutes
+**Time:** 15 minutes
 
-📗 **[Workshop Notebook](solutions/01_agent_hello_world/solution.ipynb)** | 📓 **[Homework: Build Your Own](exercises/01_agent_hello_world/exercise.ipynb)**
+**[Workshop Notebook](solutions/01_agent_hello_world/solution.ipynb)** | **[Homework: Build Your Own](exercises/01_agent_hello_world/exercise.ipynb)**
 
-> 💪 **Challenge**: Can your agent handle weather queries for multiple cities at once?
+> **Challenge**: Can your agent handle weather queries for multiple cities at once?
 
 ---
 
-### 🌊 Activity 2: Temporal Hello World
+### Activity 2: Temporal Hello World
 
 <div align="center">
 
-**⚡ Meet Your Reliability Superhero ⚡**
+**Meet Your Reliability Superhero**
 
 *Workflows that never give up!*
 
@@ -188,24 +188,24 @@ By the end of this workshop, you'll understand how to:
 **Goal:** Understand Temporal workflows and activities
 
 **What you'll learn:**
-- 🏗️ Create your first Temporal workflow
-- ⚙️ Learn about activities as units of work
-- 🔍 Observe execution in the Temporal UI
-- 💪 Experience automatic retries (like magic! ✨)
+- Create your first Temporal workflow
+- Learn about activities as units of work
+- Observe execution in the Temporal UI
+- Experience automatic retries
 
-**Time:** ⏱️ 15 minutes
+**Time:** 15 minutes
 
-📗 **[Workshop Notebook](solutions/02_temporal_hello_world/solution.ipynb)** | 📓 **[Homework: Build Your Own](exercises/02_temporal_hello_world/exercise.ipynb)**
+**[Workshop Notebook](solutions/02_temporal_hello_world/solution.ipynb)** | **[Homework: Build Your Own](exercises/02_temporal_hello_world/exercise.ipynb)**
 
-> 🎯 **Pro Tip**: The Temporal UI is your best friend for debugging—explore it thoroughly!
+> **Pro Tip**: The Temporal UI is your best friend for debugging—explore it thoroughly!
 
 ---
 
-### 🛡️ Activity 3: Durable Agent
+### Activity 3: Durable Agent
 
 <div align="center">
 
-**⭐ THE KEY ACTIVITY ⭐**
+**THE KEY ACTIVITY**
 
 *Where AI meets unbreakable reliability!*
 
@@ -214,27 +214,27 @@ By the end of this workshop, you'll understand how to:
 **Goal:** Combine agents + Temporal for production durability
 
 **What you'll learn:**
-- 🔄 Wrap LLM calls in Temporal activities
-- ✨ Get automatic retries on failures (pure magic! ✨)
-- 💾 Persist agent state across crashes
-- 📊 Add observability with trace IDs
-- 🚀 Build production-ready AI agents
+- Wrap LLM calls in Temporal activities
+- Get automatic retries on failures
+- Persist agent state across crashes
+- Add observability with trace IDs
+- Build production-ready AI agents
 
-**🎯 This is the KEY activity!** Everything comes together here! 🎯
+**This is the KEY activity!** Everything comes together here.
 
-**Time:** ⏱️ 15 minutes
+**Time:** 15 minutes
 
-📗 **[Workshop Notebook](solutions/03_durable_agent/solution.ipynb)** | 📓 **[Homework: Build Your Own](exercises/03_durable_agent/exercise.ipynb)**
+**[Workshop Notebook](solutions/03_durable_agent/solution.ipynb)** | **[Homework: Build Your Own](exercises/03_durable_agent/exercise.ipynb)**
 
-> 🌟 **Mind Blown Moment**: Your agent code doesn't change—Temporal just wraps it with superpowers!
+> **Mind Blown Moment**: Your agent code doesn't change—Temporal just wraps it with superpowers!
 
 ---
 
-### 🔀 Activity 4: Routing Workflow
+### Activity 4: Routing Workflow
 
 <div align="center">
 
-**🌍 Build a Polyglot Agent Team 🌍**
+**Build a Polyglot Agent Team**
 
 *French, Spanish, English—your agents speak them all!*
 
@@ -243,44 +243,44 @@ By the end of this workshop, you'll understand how to:
 **Goal:** Build a routing workflow with language-specific agents using production-ready file structure
 
 **What you'll learn:**
-- 🎯 Implement agent routing/triage patterns with OpenAI Agents SDK
-- 🌍 Create specialized language agents (French 🇫🇷, Spanish 🇪🇸, English 🇬🇧)
-- 🔀 Use handoff patterns for agent-to-agent transitions
-- 📁 Structure real Temporal applications (workflow, worker, starter files)
-- 🚀 Run production-style workflows with separate worker processes
+- Implement agent routing/triage patterns with OpenAI Agents SDK
+- Create specialized language agents (French, Spanish, English)
+- Use handoff patterns for agent-to-agent transitions
+- Structure real Temporal applications (workflow, worker, starter files)
+- Run production-style workflows with separate worker processes
 
-**Time:** ⏱️ 15 minutes
+**Time:** 15 minutes
 
-📁 **[Workshop Files](solutions/04_agent_routing/)** | 📁 **[Homework: Build Your Own](exercises/04_agent_routing/)**
+**[Workshop Files](solutions/04_agent_routing/)** | **[Homework: Build Your Own](exercises/04_agent_routing/)**
 
-> 🚀 **Next Level**: This is how real production systems are structured!
+> **Next Level**: This is how real production systems are structured!
 
-## 🛠️ Common Commands
+## Common Commands
 
 <div align="center">
 
-### ⚡ **Your Command Toolbox** ⚡
+### Your Command Toolbox
 
 *Everything you need, one command away!*
 
 </div>
 
 ```bash
-# 🔧 Setup and validation
+# Setup and validation
 make setup          # Install all dependencies
 make env            # Check environment variables (OPENAI_API_KEY)
 
-# 🧹 Code quality
+# Code quality
 make lint           # Run code linters (ruff, mypy)
 make test           # Run test suite (mocked - no API key needed!)
 
-# ⚡ Temporal server
+# Temporal server
 # Use temporal_installation.ipynb notebook to install and start Temporal:
 #   1. Open temporal_installation.ipynb in VS Code
 #   2. Run each cell to install Temporal CLI and start dev server
-#   3. Verify In Codespaces: Go to the **Ports** tab → Find port **8233** → Click the **Globe icon** 🌐
+#   3. Verify In Codespaces: Go to the **Ports** tab → Find port **8233** → Click the **Globe icon**
 
-# 📓 Working with the workshop
+# Working with the workshop
 # During the workshop, work through solutions/ notebooks:
 #   solutions/01_agent_hello_world/solution.ipynb
 #   solutions/02_temporal_hello_world/solution.ipynb
@@ -298,97 +298,97 @@ make test           # Run test suite (mocked - no API key needed!)
 #   exercises/04_agent_routing/  # Python files (workflow.py, worker.py, starter.py)
 ```
 
-> 💡 **Pro Tip**: Run `make setup` first thing, every time!
+> **Pro Tip**: Run `make setup` first thing, every time!
 
-## 🔍 Key Concepts
+## Key Concepts
 
 <div align="center">
 
-### 🧠 **The "Aha!" Moments** 🧠
+### The "Aha!" Moments
 
 *Understanding the magic behind durable agents*
 
 </div>
 
-### Why Temporal for AI Agents? 🤔
+### Why Temporal for AI Agents?
 
 <table>
 <tr>
 <td width="200px">
 
-**⚠️ The Problem**
+**The Problem**
 
 </td>
 <td>
 
 AI agents in production face several challenges:
 
-1. **💥 API Failures**: LLM APIs can be rate-limited or temporarily unavailable
-2. **🔥 Crashes**: Your agent process might crash mid-execution
-3. **⏳ Long-Running Ops**: Multi-step agent flows need to resume from checkpoints
-4. **🔍 Observability**: You need to debug what your agent actually did
+1. **API Failures**: LLM APIs can be rate-limited or temporarily unavailable
+2. **Crashes**: Your agent process might crash mid-execution
+3. **Long-Running Ops**: Multi-step agent flows need to resume from checkpoints
+4. **Observability**: You need to debug what your agent actually did
 
 </td>
 </tr>
 <tr>
 <td>
 
-**✨ The Solution**
+**The Solution**
 
 </td>
 <td>
 
 Temporal solves these by providing:
 
-- ✅ **Automatic retries** with configurable policies
-- ✅ **State persistence** across failures and restarts
-- ✅ **Execution history** for debugging and auditing
-- ✅ **Durable execution** that survives crashes
+- **Automatic retries** with configurable policies
+- **State persistence** across failures and restarts
+- **Execution history** for debugging and auditing
+- **Durable execution** that survives crashes
 
 </td>
 </tr>
 </table>
 
-> 💡 **Think of Temporal as**: A time machine + a guardian angel for your code!
+> **Think of Temporal as**: A time machine + a guardian angel for your code!
 
-### Architecture Pattern 🏗️
+### Architecture Pattern
 
 ```
-       User Query 👤
+       User Query
            ↓
    ┌───────────────────────────┐
-   │ Temporal Workflow         │  🎭 Orchestration Layer
-   │ (orchestration layer)     │     (Your AI's brain)
+   │ Temporal Workflow         │  Orchestration Layer
+   │ (orchestration layer)     │  (Your AI's brain)
    └───────────────────────────┘
            ↓
    ┌───────────────────────────┐
-   │ Activity: Call LLM        │  🤖 AI Decision Making
+   │ Activity: Call LLM        │  AI Decision Making
    │    with tools             │
    └───────────────────────────┘
            ↓
       [If tool needed]
            ↓
    ┌───────────────────────────┐
-   │ Activity: Execute tool    │  🔧 Take Action
+   │ Activity: Execute tool    │  Take Action
    └───────────────────────────┘
            ↓
    ┌───────────────────────────┐
-   │ Activity: Get final       │  💬 Final Response
+   │ Activity: Get final       │  Final Response
    │    LLM response           │
    └───────────────────────────┘
            ↓
-       Return to user ✅
+       Return to user
 ```
 
-**🌟 The Magic:** Each activity can retry independently, and the entire flow is durable! 💪
+**The Magic:** Each activity can retry independently, and the entire flow is durable!
 
-> 🎓 **Key Insight**: Your AI agent becomes unstoppable—it will complete its task even if the server crashes!
+> **Key Insight**: Your AI agent becomes unstoppable—it will complete its task even if the server crashes!
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 <div align="center">
 
-### 🔧 **Common Issues & Quick Fixes** 🔧
+### Common Issues & Quick Fixes
 
 *Don't panic—we've got you covered!*
 
@@ -396,10 +396,10 @@ Temporal solves these by providing:
 
 ---
 
-### Environment Issues 🔐
+### Environment Issues
 
 <details>
-<summary><strong>❌ Problem: <code>OPENAI_API_KEY</code> not found</strong></summary>
+<summary><strong>Problem: <code>OPENAI_API_KEY</code> not found</strong></summary>
 
 ```bash
 # Check your .env file exists
@@ -410,37 +410,37 @@ python scripts/check_env.py
 # Or run: make env
 ```
 
-**✅ Fix:** Create `.env` from `.env.sample` and add your API key 🔑
+**Fix:** Create `.env` from `.env.sample` and add your API key
 
-> 💡 **Tip**: Don't commit your `.env` file! It's in `.gitignore` for a reason.
+> **Tip**: Don't commit your `.env` file! It's in `.gitignore` for a reason.
 
 </details>
 
 ---
 
 <details>
-<summary><strong>❌ Problem: Temporal server not running</strong></summary>
+<summary><strong>Problem: Temporal server not running</strong></summary>
 
 ```bash
 # Check if it's running
 pgrep -f temporal
 ```
 
-**✅ Fix:** Use the `temporal_installation.ipynb` notebook to install and start Temporal:
+**Fix:** Use the `temporal_installation.ipynb` notebook to install and start Temporal:
 1. Open `temporal_installation.ipynb` in VS Code
 2. Run each cell to install Temporal CLI and start the dev server
-3. **Verify In Codespaces:** Go to the **Ports** tab → Find port **8233** → Click the **Globe icon** 🌐
+3. **Verify In Codespaces:** Go to the **Ports** tab → Find port **8233** → Click the **Globe icon**
 
-⚠️ The Temporal dev server must be running for exercises 2, 3, and 4! ⚡
+The Temporal dev server must be running for exercises 2, 3, and 4.
 
 </details>
 
 ---
 
-### Exercise Issues 📓
+### Exercise Issues
 
 <details>
-<summary><strong>❌ Problem: Import errors when running exercises</strong></summary>
+<summary><strong>Problem: Import errors when running exercises</strong></summary>
 
 ```bash
 # Reinstall dependencies
@@ -448,14 +448,14 @@ make setup
 # Or: pip install -e ".[dev]"
 ```
 
-> 💡 **Tip**: Run `make setup` whenever you pull new changes!
+> **Tip**: Run `make setup` whenever you pull new changes!
 
 </details>
 
 ---
 
 <details>
-<summary><strong>❌ Problem: Notebook kernel not found</strong></summary>
+<summary><strong>Problem: Notebook kernel not found</strong></summary>
 
 ```bash
 # Install ipykernel
@@ -463,29 +463,29 @@ pip install ipykernel
 python -m ipykernel install --user --name temporal-workshop
 ```
 
-Then select the `temporal-workshop` kernel in your notebook! 🎯
+Then select the `temporal-workshop` kernel in your notebook.
 
 </details>
 
 ---
 
 <details>
-<summary><strong>❌ Problem: Can't access Temporal UI at localhost:8233</strong></summary>
+<summary><strong>Problem: Can't access Temporal UI at localhost:8233</strong></summary>
 
 **In Codespaces:** The port should be automatically forwarded. To access it:
 1. Go to the **Ports** tab at the bottom of VS Code
 2. Find port **8233** 
-3. Click the **Globe icon** 🌐 to open the Temporal Web UI in your browser
+3. Click the **Globe icon** to open the Temporal Web UI in your browser
 4. Make sure the port visibility is set to **Public** if you need to share it
 
-**✅ Solution:** Make sure Temporal server is running using `temporal_installation.ipynb` and follow the Codespaces instructions above.
+**Solution:** Make sure Temporal server is running using `temporal_installation.ipynb` and follow the Codespaces instructions above.
 
 </details>
 
 ---
 
 <details>
-<summary><strong>❌ Problem: Tests fail with "module not found"</strong></summary>
+<summary><strong>Problem: Tests fail with "module not found"</strong></summary>
 
 ```bash
 # Make sure you're in the project root and have installed in editable mode
@@ -497,105 +497,88 @@ pip install -e ".[dev]"
 
 ---
 
-> 🆘 **Still stuck?** Open an issue on GitHub! We're here to help! 🤝
+> **Still stuck?** Open an issue on GitHub! We're here to help!
 
-## 📖 Additional Resources
+## Additional Resources
 
 <div align="center">
 
-### 📚 **Continue Your Learning Journey** 📚
+### Continue Your Learning Journey
 
 *Bookmark these for later!*
 
 </div>
 
-<table>
-<tr>
-<td width="50px">📚</td>
-<td><a href="https://docs.temporal.io/">Temporal Documentation</a> - Your complete guide to Temporal</td>
-</tr>
-<tr>
-<td>🤖</td>
-<td><a href="https://platform.openai.com/docs/api-reference">OpenAI API Reference</a> - Everything OpenAI</td>
-</tr>
-<tr>
-<td>🎯</td>
-<td><a href="https://platform.openai.com/docs/guides/function-calling">OpenAI Agents SDK</a> - Deep dive into function calling</td>
-</tr>
-<tr>
-<td>🐍</td>
-<td><a href="https://docs.temporal.io/dev-guide/python">Temporal Python SDK</a> - Python-specific docs</td>
-</tr>
-<tr>
-<td>💡</td>
-<td><a href="https://docs.google.com/presentation/d/1ZKj-PUm8-swnwP7jQPyQNMs4NIBAuCuglU3iByWn4CM/edit?slide=id.g38cc80f1e1e_1_0#slide=id.g38cc80f1e1e_1_0">Workshop Slides</a> - Slide deck from the workshop</td>
-</tr>
-</table>
+- [Temporal Documentation](https://docs.temporal.io/) - Your complete guide to Temporal
+- [OpenAI API Reference](https://platform.openai.com/docs/api-reference) - Everything OpenAI
+- [OpenAI Agents SDK](https://platform.openai.com/docs/guides/function-calling) - Deep dive into function calling
+- [Temporal Python SDK](https://docs.temporal.io/dev-guide/python) - Python-specific docs
+- [Workshop Slides](https://docs.google.com/presentation/d/1ZKj-PUm8-swnwP7jQPyQNMs4NIBAuCuglU3iByWn4CM/edit?slide=id.g38cc80f1e1e_1_0#slide=id.g38cc80f1e1e_1_0) - Slide deck from the workshop
 
-> 🌟 **Recommended Next Steps**: 
+> **Recommended Next Steps**: 
 > 1. Explore the [Temporal Samples repository](https://github.com/temporalio/samples-python)
 > 2. Join the [Temporal Slack community](https://temporal.io/slack)
-> 3. Build something awesome and share it! 🚀
+> 3. Build something awesome and share it!
 
-## 🎓 Instructor Notes
+## Instructor Notes
 
 <div align="center">
 
-### 👨‍🏫 **For Workshop Leaders** 👩‍🏫
+### For Workshop Leaders
 
 *Tips from the trenches!*
 
 </div>
 
-### Timing Breakdown ⏱️
+### Timing Breakdown
 
 <table>
 <tr>
 <td width="150px"><strong>00:00-05:00</strong></td>
-<td>🚀 Introduction & Setup verification</td>
+<td>Introduction & Setup verification</td>
 </tr>
 <tr>
 <td><strong>05:00-15:00</strong></td>
-<td>🤖 OpenAI Agents SDK Introduction (slides)</td>
+<td>OpenAI Agents SDK Introduction (slides)</td>
 </tr>
 <tr>
 <td><strong>15:00-30:00</strong></td>
-<td>🏃 Walk through Activity 1 solution notebook together + Q&A</td>
+<td>Walk through Activity 1 solution notebook together + Q&A</td>
 </tr>
 <tr>
 <td><strong>30:00-35:00</strong></td>
-<td>✅ Discussion & key takeaways from Activity 1</td>
+<td>Discussion & key takeaways from Activity 1</td>
 </tr>
 <tr>
 <td><strong>35:00-40:00</strong></td>
-<td>🌊 Intro to Temporal (slides)</td>
+<td>Intro to Temporal (slides)</td>
 </tr>
 <tr>
 <td><strong>40:00-55:00</strong></td>
-<td>🏃 Walk through Activity 2 solution notebook together + Q&A</td>
+<td>Walk through Activity 2 solution notebook together + Q&A</td>
 </tr>
 <tr>
 <td><strong>55:00-60:00</strong></td>
-<td>✅ Discussion & key takeaways from Activity 2</td>
+<td>Discussion & key takeaways from Activity 2</td>
 </tr>
 <tr>
 <td><strong>60:00-65:00</strong></td>
-<td>🛡️ OpenAI Agents SDK + Temporal (slides)</td>
+<td>OpenAI Agents SDK + Temporal (slides)</td>
 </tr>
 <tr>
 <td><strong>65:00-80:00</strong></td>
-<td>🏃 Walk through Activity 3 solution notebook (THE KEY ACTIVITY! 🎯)</td>
+<td>Walk through Activity 3 solution notebook (THE KEY ACTIVITY)</td>
 </tr>
 <tr>
 <td><strong>80:00-90:00</strong></td>
-<td>🎉 Demo Activity 4 (production patterns) + Wrap-up</td>
+<td>Demo Activity 4 (production patterns) + Wrap-up</td>
 </tr>
 </table>
 
-### Common Pitfalls ⚠️
+### Common Pitfalls
 
 <details>
-<summary><strong>1️⃣ Students skip checking <code>.env</code></strong> 🔑</summary>
+<summary><strong>1. Students skip checking <code>.env</code></strong></summary>
 
 - Do environment check before starting (`make env`)
 - Emphasize that exercises 1, 3, 4 need API key
@@ -604,17 +587,17 @@ pip install -e ".[dev]"
 </details>
 
 <details>
-<summary><strong>2️⃣ Temporal not running</strong> ⚡</summary>
+<summary><strong>2. Temporal not running</strong></summary>
 
 - Remind students to use `temporal_installation.ipynb` notebook to install and start Temporal
 - Walk through opening the notebook and running each cell
-- Show them how to verify In Codespaces: Go to the **Ports** tab → Find port **8233** → Click the **Globe icon** 🌐
+- Show them how to verify In Codespaces: Go to the **Ports** tab → Find port **8233** → Click the **Globe icon**
 - Verify EARLY before Exercise 2!
 
 </details>
 
 <details>
-<summary><strong>3️⃣ Confusion between workshop and homework</strong> 📓</summary>
+<summary><strong>3. Confusion between workshop and homework</strong></summary>
 
 - Clearly explain: work through `solutions/` during the workshop, practice building your own in `exercises/` afterward
 - Solution notebooks are complete implementations to learn from during the workshop
@@ -623,7 +606,7 @@ pip install -e ".[dev]"
 </details>
 
 <details>
-<summary><strong>4️⃣ Activity timeouts</strong> ⏳</summary>
+<summary><strong>4. Activity timeouts</strong></summary>
 
 - Explain `start_to_close_timeout` defaults
 - Show how to adjust for longer-running operations
@@ -632,7 +615,7 @@ pip install -e ".[dev]"
 </details>
 
 <details>
-<summary><strong>5️⃣ Notebook vs Python files</strong> 📝</summary>
+<summary><strong>5. Notebook vs Python files</strong></summary>
 
 - Activities 1-3 are Jupyter notebooks (`.ipynb`) - work through `solutions/` during workshop
 - Activity 4 uses separate Python files (workflow.py, worker.py, starter.py)
@@ -641,10 +624,10 @@ pip install -e ".[dev]"
 
 </details>
 
-### Key Teaching Points 🎯
+### Key Teaching Points
 
 <details>
-<summary><strong>Activity 1: Agent Foundations</strong> 🤖</summary>
+<summary><strong>Activity 1: Agent Foundations</strong></summary>
 
 - Walk through the complete solution notebook together
 - Emphasize tool calling as the foundation of agentic behavior
@@ -655,10 +638,10 @@ pip install -e ".[dev]"
 </details>
 
 <details>
-<summary><strong>Activity 2: Temporal Magic</strong> 🌊</summary>
+<summary><strong>Activity 2: Temporal Magic</strong></summary>
 
 - Walk through the solution notebook as a group
-- Show the Temporal UI extensively - it's powerful for debugging! 🔍
+- Show the Temporal UI extensively - it's powerful for debugging
 - Walk through execution history
 - Demonstrate the retry mechanism
 - **Demo tip**: Kill the worker mid-execution and restart it!
@@ -666,7 +649,7 @@ pip install -e ".[dev]"
 </details>
 
 <details>
-<summary><strong>Activity 3: THE KEY MOMENT</strong> 🌟</summary>
+<summary><strong>Activity 3: THE KEY MOMENT</strong></summary>
 
 - Guide students through the solution notebook
 - Show how activities make LLM calls durable
@@ -677,7 +660,7 @@ pip install -e ".[dev]"
 </details>
 
 <details>
-<summary><strong>Activity 4: Production Patterns</strong> 🔀</summary>
+<summary><strong>Activity 4: Production Patterns</strong></summary>
 
 - Walk through the production file structure together
 - Language-based routing pattern (French/Spanish/English agents)
@@ -690,32 +673,32 @@ pip install -e ".[dev]"
 
 ---
 
-> 💡 **Golden Rule**: Keep energy high! These concepts are powerful and fun—your enthusiasm is contagious! 🎉
+> **Golden Rule**: Keep energy high! These concepts are powerful and fun—your enthusiasm is contagious!
 
-## 📝 License
+## License
 
-MIT License - feel free to use this workshop material for educational purposes! 🎓
+MIT License - feel free to use this workshop material for educational purposes!
 
-## 🤝 Contributing
+## Contributing
 
-Found a bug or have a suggestion? Please open an issue or submit a pull request! We welcome contributions to make this workshop even better! 🌟
+Found a bug or have a suggestion? Please open an issue or submit a pull request! We welcome contributions to make this workshop even better!
 
 ---
 
 <div align="center">
 
-### 🎉 **Happy Coding!** 🎉
+### Happy Coding!
 
-**Build amazing durable AI agents!** 🤖✨
-
----
-
-Made with ❤️ by the Temporal Community
-
-[⭐ Star us on GitHub](https://github.com/temporal-community/edu-ai-workshop-openai-agents-sdk) | [🐦 Follow Temporal](https://twitter.com/temporalio) | [💬 Join Slack](https://temporal.io/slack)
+**Build amazing durable AI agents!**
 
 ---
 
-### 🚀 Ready to get started? Scroll back to [Quick Start](#-quick-start)! 🚀
+Made with love by the Temporal Community
+
+[Star us on GitHub](https://github.com/temporal-community/edu-ai-workshop-openai-agents-sdk) | [Follow Temporal](https://twitter.com/temporalio) | [Join Slack](https://temporal.io/slack)
+
+---
+
+### Ready to get started? Scroll back to [Quick Start](#quick-start)!
 
 </div>
