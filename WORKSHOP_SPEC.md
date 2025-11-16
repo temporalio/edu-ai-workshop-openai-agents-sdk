@@ -1,22 +1,20 @@
-# 🎓 Temporal + OpenAI Agents SDK – 90-min Codespaces Workshop Repo Spec
+# Temporal + OpenAI Agents SDK – 90-min Codespaces Workshop Repo Spec
 
 <div align="center">
 
-**📋 The Master Blueprint 📋**
+**The Master Blueprint**
 
 *Everything you need to know about this workshop's architecture*
-
-🏗️ 🎯 📚 ⚡
 
 </div>
 
 ---
 
-## 🎯 Goal (Outcome, not Tasks)
+## Goal (Outcome, not Tasks)
 
 <div align="center">
 
-**🚀 Mission Statement 🚀**
+**Mission Statement**
 
 </div>
 
@@ -24,32 +22,32 @@ Create a GitHub Codespaces-ready repository that teaches beginner→intermediate
 
 **Workshop Approach**: Students work through complete, working implementations in the `solutions/` directory during the workshop, learning by exploring and running production-quality code. After the workshop, the `exercises/` directory provides optional homework for students to practice building everything from scratch.
 
-> 💡 **Success Criteria**: A complete beginner can go from "What's Temporal?" to "I built a production-ready AI agent!" in one session by following along with working code!
+> **Success Criteria**: A complete beginner can go from "What's Temporal?" to "I built a production-ready AI agent!" in one session by following along with working code!
 
 ---
 
-## 🚫 Non-Goals
+## Non-Goals
 
 <div align="center">
 
-**⛔ What This Workshop Is NOT ⛔**
+**What This Workshop Is NOT**
 
 </div>
 
-- ❌ No secret keys in repo (security first! 🔒)
-- ❌ No complex frameworks; keep code short, didactic, and runnable <60s after Codespace boots
-- ❌ No advanced agent orchestration beyond durability, retries, state, and tracing
-- ❌ Not a deep dive into ML/AI theory (this is practical engineering! 🛠️)
+- No secret keys in repo (security first)
+- No complex frameworks; keep code short, didactic, and runnable <60s after Codespace boots
+- No advanced agent orchestration beyond durability, retries, state, and tracing
+- Not a deep dive into ML/AI theory (this is practical engineering)
 
-> 🎯 **Focus**: Hands-on, practical, production-ready patterns only!
+> **Focus**: Hands-on, practical, production-ready patterns only!
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 <div align="center">
 
-**🔧 The Tools We Use 🔧**
+**The Tools We Use**
 
 *Batteries included!*
 
@@ -59,42 +57,42 @@ Create a GitHub Codespaces-ready repository that teaches beginner→intermediate
 <tr>
 <td width="150px"><strong>Core</strong></td>
 <td>
-• Python 3.11 🐍<br>
-• <code>openai</code> (Agents SDK) 🤖<br>
-• <code>temporalio</code> ⚡
+• Python 3.11<br>
+• <code>openai</code> (Agents SDK)<br>
+• <code>temporalio</code>
 </td>
 </tr>
 <tr>
 <td><strong>Tooling</strong></td>
 <td>
-• <code>rich</code>, <code>typer</code> 🎨<br>
-• <code>pytest</code>, <code>ruff</code>, <code>mypy</code> ✅<br>
-• Temporal CLI (local dev server) 🛠️
+• <code>rich</code>, <code>typer</code><br>
+• <code>pytest</code>, <code>ruff</code>, <code>mypy</code><br>
+• Temporal CLI (local dev server)
 </td>
 </tr>
 <tr>
 <td><strong>Infrastructure</strong></td>
 <td>
-• GitHub Codespaces (devcontainer) ☁️<br>
-• Optional: Node (if required by Temporal Web) 🟩
+• GitHub Codespaces (devcontainer)<br>
+• Optional: Node (if required by Temporal Web)
 </td>
 </tr>
 </table>
 
-> 💡 **Everything is pre-configured!** Just click and code!
+> **Everything is pre-configured!** Just click and code!
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 temporal-ai-agents-workshop/
-├── solutions/                       # 👈 Primary workshop materials
+├── solutions/                       # Primary workshop materials
 │   ├── 01_agent_hello_world/       # Complete working implementation
 │   ├── 02_temporal_hello_world/    # Complete working implementation
 │   ├── 03_durable_agent/           # Complete working implementation
 │   └── 04_agent_routing/           # Complete working implementation
-├── exercises/                       # 👈 Optional homework activities
+├── exercises/                       # Optional homework activities
 │   ├── 01_agent_hello_world/       # Starter code for practice
 │   ├── 02_temporal_hello_world/    # Starter code for practice
 │   ├── 03_durable_agent/           # Starter code for practice
@@ -117,11 +115,11 @@ temporal-ai-agents-workshop/
 
 ---
 
-## 🏗️ Architecture Patterns
+## Architecture Patterns
 
 <div align="center">
 
-**🎓 The Learning Progression 🎓**
+**The Learning Progression**
 
 *From simple to sophisticated!*
 
@@ -129,80 +127,80 @@ temporal-ai-agents-workshop/
 
 The workshop teaches a progressive architecture pattern across exercises:
 
-### **Exercise 1: Basic Agent Pattern** 🤖
+### **Exercise 1: Basic Agent Pattern**
 
 ```
-       User Query 👤
+       User Query
            ↓
-   Agent (OpenAI LLM) 🤖
+   Agent (OpenAI LLM)
            ↓
-     Tool Function 🔧
+     Tool Function
            ↓
-     External API 🌐
+     External API
            ↓
-   Data returned to Agent 📊
+   Data returned to Agent
            ↓
-   Agent uses LLM to generate response 💬
+   Agent uses LLM to generate response
            ↓
-     Return to user ✅
+     Return to user
 ```
 
-> 🎯 **Learning Goal**: Understand how AI agents use tools
+> **Learning Goal**: Understand how AI agents use tools
 
 ---
 
-### **Exercise 2: Temporal Fundamentals** 🌊
+### **Exercise 2: Temporal Fundamentals**
 
 ```
-   Workflow Request 👤
+   Workflow Request
            ↓
-   Temporal Workflow 🎭
+   Temporal Workflow
            ↓
-   Temporal Activity ⚙️
+   Temporal Activity
            ↓
-        Result ✅
+        Result
 ```
 
-> 🎯 **Learning Goal**: Understand workflows, activities, and durability
+> **Learning Goal**: Understand workflows, activities, and durability
 
 ---
 
-### **Exercise 3: Durable Agent (Integration)** 🛡️
+### **Exercise 3: Durable Agent (Integration)**
 
 ```
-       User Query 👤
+       User Query
            ↓
    ┌───────────────────────────┐
-   │ Temporal Workflow         │  🎭 Orchestration
+   │ Temporal Workflow         │  Orchestration
    │ (orchestration layer)     │
    └───────────────────────────┘
            ↓
    ┌───────────────────────────┐
-   │ Activity: Call LLM        │  🤖 AI Decision
+   │ Activity: Call LLM        │  AI Decision
    │    with tools             │
    └───────────────────────────┘
            ↓
       [If tool needed]
            ↓
    ┌───────────────────────────┐
-   │ Activity: Execute tool    │  🔧 Take Action
+   │ Activity: Execute tool    │  Take Action
    └───────────────────────────┘
            ↓
    ┌───────────────────────────┐
-   │ Activity: Get final       │  💬 Final Response
+   │ Activity: Get final       │  Final Response
    │    LLM response           │
    └───────────────────────────┘
            ↓
-       Return to user ✅
+       Return to user
 ```
 
-**🌟 Key Insight:** Each activity can retry independently, and the entire flow is durable! 💪
+**Key Insight:** Each activity can retry independently, and the entire flow is durable!
 
-> 🎯 **Learning Goal**: Combine AI agents with Temporal for production durability
+> **Learning Goal**: Combine AI agents with Temporal for production durability
 
 ---
 
-## 🧩 Activity Requirements
+## Activity Requirements
 
 ### **Activity 1 – Agent Hello World**
 
@@ -240,7 +238,7 @@ Each directory includes its own README:
 
 ---
 
-## ⚙️ DevEx / Codespaces
+## DevEx / Codespaces
 
 - `devcontainer.json` installs Python 3.11 → calls `scripts/bootstrap.sh` post-create.
 - `scripts/bootstrap.sh` installs deps, Temporal CLI, validates env (`OPENAI_API_KEY`).
@@ -253,7 +251,7 @@ Each directory includes its own README:
 
 ---
 
-## 🔒 Security & Keys
+## Security & Keys
 
 - `.env.sample` with `OPENAI_API_KEY=`; code reads only from env.
 - `check_env.py` fails fast with helpful error if missing key.
@@ -261,7 +259,7 @@ Each directory includes its own README:
 
 ---
 
-## 🧪 CI (GitHub Actions)
+## CI (GitHub Actions)
 
 - `ci.yml` runs on push/PR:
   - Python 3.11 → install deps → `ruff`, `mypy`, `pytest -q`
@@ -269,7 +267,7 @@ Each directory includes its own README:
 
 ---
 
-## ✅ Acceptance Criteria
+## Acceptance Criteria
 
 - Codespace cold-start → `make exercise-1` in ≤90s.
 - `make exercise-1/2/3` succeed on fresh Codespace (API key required for #1/#3).
@@ -283,7 +281,7 @@ Each directory includes its own README:
 
 ---
 
-## 🧾 Docs to Generate
+## Docs to Generate
 
 - Root `README.md` with launch, agenda, setup, troubleshooting.
 - Each exercise `README.md` (as above).
@@ -291,7 +289,7 @@ Each directory includes its own README:
 
 ---
 
-## 🧠 Style & Teaching Rules
+## Style & Teaching Rules
 
 - Prioritize clarity over abstraction.
 - Use linear, readable flow; verbose naming.
@@ -301,13 +299,13 @@ Each directory includes its own README:
 
 ---
 
-## 📦 Deliverables
+## Deliverables
 
 - Full repo above, runnable in Codespaces with all activities (solutions for workshop, exercises for homework), and CI passing.
 
 ---
 
-## 🔁 Iteration Prompts (For Claude)
+## Iteration Prompts (For Claude)
 
 **Tighten code & retries:**
 
@@ -331,7 +329,7 @@ Each directory includes its own README:
 
 ---
 
-## 🧭 Workshop Runbook (Slide Notes)
+## Workshop Runbook (Slide Notes)
 
 1. Launch Codespace (60s setup).
 2. Walk through `solutions/01_agent_hello_world/solution.ipynb` together (Hello World Agent).
