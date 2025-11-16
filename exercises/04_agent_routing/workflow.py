@@ -7,8 +7,8 @@ This workflow demonstrates intelligent request distribution to specialized
 language agents using the handoff pattern.
 """
 
+from agents import Agent
 from temporalio import workflow
-from agents import Agent, RunConfig, Runner, TResponseInputItem, trace
 
 # Task queue name for this workflow pattern
 TASK_QUEUE = "routing-workflow-queue"
