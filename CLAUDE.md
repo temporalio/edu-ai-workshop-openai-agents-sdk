@@ -53,7 +53,7 @@ make test           # Run pytest test suite
 temporal server start-dev     # Start Temporal local dev server (idempotent)
 ```
 
-### Workshop Activities
+### Workshop Exercises
 
 - **Exercises 1-3:** Self-contained Jupyter notebooks (`.ipynb`) with all necessary code
 - **Exercise 4:** Separate Python files (workflow.py, worker.py, starter.py) demonstrating production structure

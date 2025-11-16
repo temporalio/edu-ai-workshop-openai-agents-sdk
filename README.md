@@ -141,7 +141,7 @@ By the end of this workshop, you'll understand how to:
 
 ### 🎢 **Your Learning Journey** 🎢
 
-*From zero to hero in four activities!*
+*From zero to hero in four exercises!*
 
 </div>
 

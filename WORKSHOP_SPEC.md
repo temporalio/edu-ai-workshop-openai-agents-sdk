@@ -94,7 +94,7 @@ temporal-ai-agents-workshop/
 │   ├── 02_temporal_hello_world/    # Complete working implementation
 │   ├── 03_durable_agent/           # Complete working implementation
 │   └── 04_agent_routing/           # Complete working implementation
-├── exercises/                       # 👈 Optional homework activities
+├── exercises/                       # 👈 Optional homework exercises
 │   ├── 01_agent_hello_world/       # Starter code for practice
 │   ├── 02_temporal_hello_world/    # Starter code for practice
 │   ├── 03_durable_agent/           # Starter code for practice
