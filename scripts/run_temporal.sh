@@ -2,12 +2,12 @@
 
 # Check if Temporal is already running
 if pgrep -f "temporal server start-dev" > /dev/null; then
-    echo "✓ Temporal server is already running"
+    echo "Temporal server is already running"
     echo "  UI: http://localhost:8233"
     exit 0
 fi
 
-echo "🚀 Starting Temporal dev server..."
+echo "Starting Temporal dev server..."
 echo "  Server: localhost:7233"
 echo "  UI: http://localhost:8233"
 echo ""
@@ -23,10 +23,10 @@ sleep 3
 
 # Check if it started successfully
 if ps -p $TEMPORAL_PID > /dev/null; then
-    echo "✅ Temporal server started (PID: $TEMPORAL_PID)"
+    echo "SUCCESS: Temporal server started (PID: $TEMPORAL_PID)"
     echo "   Keep this terminal open or run in background"
     wait $TEMPORAL_PID
 else
-    echo "❌ Failed to start Temporal server"
+    echo "ERROR: Failed to start Temporal server"
     exit 1
 fi

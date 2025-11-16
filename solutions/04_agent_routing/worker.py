@@ -19,7 +19,7 @@ from temporalio.contrib.openai_agents import ModelActivityParameters, OpenAIAgen
 from temporalio.worker import Worker
 
 # Import the workflow class that this worker will execute
-from workflow import RoutingWorkflow, TASK_QUEUE
+from workflow import TASK_QUEUE, RoutingWorkflow
 
 # Load environment variables from .env file (includes OPENAI_API_KEY)
 load_dotenv()
@@ -64,10 +64,10 @@ async def main():
     )
 
     # Log worker startup for observability
-    print(f"🚀 Worker started successfully")
+    print("🚀 Worker started successfully")
     print(f"📋 Task Queue: {TASK_QUEUE}")
     print(f"🔄 Workflows: {RoutingWorkflow.__name__}")
-    print(f"⏳ Polling for tasks... (Press Ctrl+C to stop)\n")
+    print("⏳ Polling for tasks... (Press Ctrl+C to stop)\n")
 
     # Start the worker - this blocks indefinitely, processing tasks as they arrive
     # The worker will continue running until explicitly stopped

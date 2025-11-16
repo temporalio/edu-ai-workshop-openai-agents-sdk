@@ -9,15 +9,10 @@ OpenAI Agents SDK plugin for agent integration.
 """
 
 import asyncio
-from datetime import timedelta
 
 from dotenv import load_dotenv
-from temporalio.client import Client
-from temporalio.contrib.openai_agents import ModelActivityParameters, OpenAIAgentsPlugin
-from temporalio.worker import Worker
 
 # Import the workflow class that this worker will execute
-from workflow import RoutingWorkflow, TASK_QUEUE
 
 # Load environment variables from .env file (includes OPENAI_API_KEY)
 load_dotenv()
