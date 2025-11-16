@@ -46,7 +46,7 @@ By the end of this workshop, you'll understand how to:
 
 ### ⚡ **Ready, Set, Code!** ⚡
 
-*Get started in under 2 minutes!*
+*Get started in minutes!*
 
 </div>
 
@@ -59,7 +59,7 @@ By the end of this workshop, you'll understand how to:
 </tr>
 <tr>
 <td>2️⃣</td>
-<td>Wait ~90 seconds for the environment to set up ⏱️ (perfect time for ☕)</td>
+<td>Wait 2-3 minutes for the environment to set up ⏱️ (perfect time for ☕)</td>
 </tr>
 <tr>
 <td>3️⃣</td>
