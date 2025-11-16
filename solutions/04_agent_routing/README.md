@@ -317,7 +317,51 @@ python starter.py "Hello! How are you doing today?"
 
 ---
 
-### Step 4: Observe in Temporal UI 🔍
+### Step 4: Demonstrate Temporal Durability 🛡️
+
+<div align="center">
+
+**💪 See Temporal's Durability in Action! 💪**
+
+</div>
+
+This workflow includes a 10-second pause after the triage agent completes. This demonstrates Temporal's durability - you can kill the worker and it will resume exactly where it left off!
+
+**To demonstrate:**
+
+1. **Watch the worker terminal** - you'll see the pause message:
+
+   ```
+   ⏸️  Pausing for 10 seconds to demonstrate durability...
+   ```
+
+2. **Kill the worker** during the 10-second pause:
+
+   - Press `Ctrl+C` in the worker terminal
+
+3. **Restart the worker** immediately:
+
+   ```bash
+   python worker.py
+   ```
+
+4. **Observe the magic** ✨:
+
+   - The workflow resumes from the pause point
+   - It does NOT re-run the triage agent
+   - The specialist agent completes the response
+   - No data is lost!
+
+5. **Check the Temporal UI**:
+   - You'll see the workflow paused during the delay
+   - Then resumed after the worker restarted
+   - Full execution history is preserved
+
+> 🎯 **Key Insight**: This is Temporal's durability guarantee. Even if your worker crashes, workflows resume exactly where they left off. The triage agent call is never re-executed!
+
+---
+
+### Step 5: Observe in Temporal UI 🔍
 
 <div align="center">
 
@@ -325,11 +369,12 @@ python starter.py "Hello! How are you doing today?"
 
 </div>
 
-1. **Open Temporal UI**
+1. **Open Temporal UI:**
 2. **Find** your workflow (search by workflow ID)
 3. **Observe:**
    - Workflow execution timeline
    - Agent handoff from triage to specialist
+   - The 10-second timer during the pause
    - Complete execution history
    - Input/output for each step
 
@@ -337,7 +382,7 @@ python starter.py "Hello! How are you doing today?"
 
 ---
 
-### Step 5: Test Different Languages 🌍
+### Step 6: Test Different Languages 🌍
 
 <div align="center">
 

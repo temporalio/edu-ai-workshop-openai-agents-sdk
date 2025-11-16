@@ -6,6 +6,8 @@ The triage agent analyzes incoming queries and routes them to the appropriate
 language specialist (French, Spanish, or English) using the handoff pattern.
 """
 
+from datetime import timedelta
+
 from agents import Agent, RunConfig, Runner, TResponseInputItem, trace
 from temporalio import workflow
 
@@ -73,8 +75,13 @@ def triage_agent() -> Agent:
         name="Triage Agent",
         # Instruct the triage agent to detect language and route appropriately
         instructions=(
-            "You are a triage agent. Analyze the language of the user's query "
-            "and handoff to the appropriate language specialist agent. "
+            "Identify the primary language of the user's message. "
+            "Never answer directly. "
+            "Immediately hand off using one of the following rules: "
+            "- French → French Agent "
+            "- Spanish → Spanish Agent "
+            "- English → English Agent "
+            "If detection is uncertain or the language is unsupported, hand off to English Agent."
         ),
         # Provide list of specialist agents available for handoff
         # The triage agent will choose which specialist to invoke based on language
@@ -98,6 +105,12 @@ class RoutingWorkflow:
                 input=inputs,
                 run_config=config,
             )
+
+            # Add a delay to demonstrate Temporal durability
+            # This allows the instructor to kill the worker and show that
+            # the workflow resumes from this point (not from the beginning)
+            workflow.logger.info("⏸️  Pausing for 10 seconds to demonstrate durability...")
+            await workflow.sleep(timedelta(seconds=10))
 
             # Log that the handoff to the specialist agent has completed
             workflow.logger.info("Handoff completed")
