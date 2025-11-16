@@ -11,7 +11,7 @@ This is a 90-minute workshop repository teaching developers how to build **durab
 All tool calls have to be real, no mocking. Use the [weather API](https://docs.temporal.io/ai-cookbook/tool-calling-python#create-the-activity-for-the-tool-invocation). All code uses **asyncio** for efficient I/O operations.
 
 **Target Audience:** Beginner-intermediate Python developers
-**Workshop Format:** 30 minutes instruction + 4×15 minute hands-on activities (using complete solutions)
+**Workshop Format:** 30 minutes instruction + 4×15 minute hands-on exercises (using complete solutions)
 
 ### Workshop Structure 🎯
 
@@ -131,7 +131,7 @@ Return to user ✅
 
 ### Exercise Details
 
-1. **Activity 1 - Agent Hello World** (Workshop: `solutions/01_agent_hello_world/`, Homework: `exercises/01_agent_hello_world/`)
+1. **Exercise 1 - Agent Hello World** (Workshop: `solutions/01_agent_hello_world/`, Homework: `exercises/01_agent_hello_world/`)
 
    - Minimal OpenAI Agents SDK usage with custom weather tool calling the [National Weather Service API](https://docs.temporal.io/ai-cookbook/tool-calling-python#create-the-activity-for-the-tool-invocation)
    - Demonstrates `@function_tool` decorator for custom tools
@@ -180,13 +180,13 @@ if __name__ == "__main__":
 - Available as Jupyter notebook (`exercise.ipynb`)
 - No Temporal integration yet
 
-2. **Activity 2 - Temporal Hello World** (Workshop: `solutions/02_temporal_hello_world/`, Homework: `exercises/02_temporal_hello_world/`)
+2. **Exercise 2 - Temporal Hello World** (Workshop: `solutions/02_temporal_hello_world/`, Homework: `exercises/02_temporal_hello_world/`)
 
    - 1 workflow + 1 activity in Python
    - Introduces Temporal concepts without AI complexity
    - Shows durability and retry mechanisms
 
-3. **Activity 3 - Durable Agent** (Workshop: `solutions/03_durable_agent/`, Homework: `exercises/03_durable_agent/`)
+3. **Exercise 3 - Durable Agent** (Workshop: `solutions/03_durable_agent/`, Homework: `exercises/03_durable_agent/`)
 
    - **Core integration:** Weather agent with Temporal activities as tools using `activity_as_tool()` pattern
    - **4-component structure** mirrors production applications (activities, workflow, worker, starter)
@@ -324,7 +324,7 @@ async def main():
 - Use `start_workflow` (not `execute_workflow`)
 - Each Jupyter cell represents one component file
 
-4. **Activity 4 - Routing Workflow** (Workshop: `solutions/04_agent_routing/`, Homework: `exercises/04_agent_routing/`)
+4. **Exercise 4 - Routing Workflow** (Workshop: `solutions/04_agent_routing/`, Homework: `exercises/04_agent_routing/`)
    - **Production-ready structure:** Separate Python files (workflow.py, worker.py, starter.py) instead of notebooks
    - **Routing pattern:** Triage agent analyzes language and routes to specialists (French, Spanish, English)
    - **Handoff mechanism:** Uses OpenAI Agents SDK handoff pattern for agent-to-agent transitions
@@ -386,12 +386,12 @@ scripts/       # Bootstrap, environment checks, Temporal startup
 .devcontainer/ # Codespaces configuration
 ```
 
-Each activity directory contains:
+Each exercise directory contains:
 
-- **Activities 1-3:** Jupyter notebooks (`.ipynb`) for interactive learning
+- **Exercises 1-3:** Jupyter notebooks (`.ipynb`) for interactive learning
   - `solutions/`: Complete, well-commented implementations for workshop
   - `exercises/`: Starter code with TODO markers for homework
-- **Activity 4:** Separate Python files (workflow.py, worker.py, starter.py) for production pattern
+- **Exercise 4:** Separate Python files (workflow.py, worker.py, starter.py) for production pattern
   - `solutions/04_agent_routing/`: Complete implementation
   - `exercises/04_agent_routing/`: Starter code with TODOs
 - `README.md` in each directory with: Goal, Steps (≤5), Expected Output, Stretch Goal, Timebox
@@ -487,7 +487,7 @@ All code follows these principles:
 
 ## Working with This Repository
 
-### When Adding New Activities
+### When Adding New Exercises
 
 - Follow the 15-minute timebox constraint
 - Include README with 5 or fewer steps in both `/solutions/` and `/exercises/`
