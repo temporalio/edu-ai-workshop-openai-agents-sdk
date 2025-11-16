@@ -72,14 +72,12 @@ By the end of this workshop, you'll understand how to:
 <td>4️⃣</td>
 <td>Install and start Temporal server using the notebook 📓:
    <ul>
-   <li>Open <code>temporal_installation.ipynb</code> in VS Code</li>
-   <li>Run each cell to:
-     <ul>
-       <li>Install the Temporal CLI</li>
-       <li>Start the Temporal dev server</li>
-     </ul>
-   </li>
-   <li><strong>Verify In Codespaces:</strong> Go to the <strong>Ports</strong> tab at the bottom of VS Code → Find port <strong>8233</strong> → Click the <strong>Globe icon</strong> 🌐 to open the Temporal Web UI</li>
+   <li><strong>Open</strong> <code>temporal_installation.ipynb</code> in VS Code</li>
+   <li><strong>Select Kernel:</strong> Click the kernel selector in the top-right → Choose <strong>Python 3.11</strong></li>
+   <li><strong>Run Cell 1:</strong> Install Temporal CLI (~30 seconds)</li>
+   <li><strong>Run Cell 2:</strong> Start Temporal server (keeps running - this is normal! ✅)</li>
+   <li><strong>Verify:</strong> Go to <strong>Ports</strong> tab at bottom → Find port <strong>8233</strong> → Click <strong>Globe icon</strong> 🌐</li>
+   <li>💡 <strong>Note:</strong> Keep Cell 2 running - don't stop it! The notebook has detailed step-by-step instructions.</li>
    </ul>
 </td>
 </tr>
@@ -277,8 +275,11 @@ make test           # Run test suite (mocked - no API key needed!)
 # ⚡ Temporal server
 # Use temporal_installation.ipynb notebook to install and start Temporal:
 #   1. Open temporal_installation.ipynb in VS Code
-#   2. Run each cell to install Temporal CLI and start dev server
-#   3. Verify In Codespaces: Go to the **Ports** tab → Find port **8233** → Click the **Globe icon** 🌐
+#   2. Select Python 3.11 kernel (click top-right corner)
+#   3. Run Cell 1 to install Temporal CLI (~30 seconds)
+#   4. Run Cell 2 to start dev server (keeps running - don't stop it!)
+#   5. Verify: Go to Ports tab → port 8233 → Click Globe icon 🌐
+#   💡 The notebook has detailed step-by-step instructions!
 
 # 📓 Working with the workshop
 # During the workshop, work through solutions/ notebooks:
@@ -428,8 +429,12 @@ pgrep -f temporal
 
 **✅ Fix:** Use the `temporal_installation.ipynb` notebook to install and start Temporal:
 1. Open `temporal_installation.ipynb` in VS Code
-2. Run each cell to install Temporal CLI and start the dev server
-3. **Verify In Codespaces:** Go to the **Ports** tab → Find port **8233** → Click the **Globe icon** 🌐
+2. **Select Kernel:** Click top-right → Choose **Python 3.11**
+3. **Run Cell 1:** Install Temporal CLI (~30 seconds)
+4. **Run Cell 2:** Start server (keeps running - don't stop it!)
+5. **Verify:** Go to **Ports** tab → Find port **8233** → Click **Globe icon** 🌐
+
+💡 **Tip:** The notebook has detailed step-by-step instructions with troubleshooting help!
 
 ⚠️ The Temporal dev server must be running for exercises 2, 3, and 4! ⚡
 
@@ -606,10 +611,15 @@ pip install -e ".[dev]"
 <details>
 <summary><strong>2️⃣ Temporal not running</strong> ⚡</summary>
 
-- Remind students to use `temporal_installation.ipynb` notebook to install and start Temporal
-- Walk through opening the notebook and running each cell
-- Show them how to verify In Codespaces: Go to the **Ports** tab → Find port **8233** → Click the **Globe icon** 🌐
-- Verify EARLY before Exercise 2!
+- **Before Exercise 2**, have everyone go through `temporal_installation.ipynb` together
+- Walk through the notebook step-by-step:
+  - Demonstrate kernel selection in top-right corner
+  - Run Cell 1 together and wait for completion message
+  - Run Cell 2 together and explain it will keep running (this is normal!)
+  - Show how to access Ports tab and open port 8233 in browser
+- Emphasize: **Don't stop Cell 2** - it needs to run throughout the workshop
+- Have TAs check that everyone sees the Temporal UI before proceeding
+- The improved notebook now has detailed instructions, progress indicators, and troubleshooting tips!
 
 </details>
 
