@@ -64,7 +64,7 @@ By the end of this workshop, you'll understand how to:
 <tr>
 <td>3️⃣</td>
 <td>Add your OpenAI API key to <code>.env</code>:
-   <pre>cp .env.sample .env
+   <pre># The .env file is already created during setup
 # Edit .env and add your OPENAI_API_KEY</pre>
 </td>
 </tr>
@@ -410,7 +410,7 @@ python scripts/check_env.py
 # Or run: make env
 ```
 
-**✅ Fix:** Create `.env` from `.env.sample` and add your API key 🔑
+**✅ Fix:** If `.env` doesn't exist, create it from `.env.sample` (`cp .env.sample .env`), then add your API key 🔑
 
 > 💡 **Tip**: Don't commit your `.env` file! It's in `.gitignore` for a reason.
 
