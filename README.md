@@ -16,6 +16,8 @@ Learn to build **durable AI agents** using **OpenAI Agents SDK + Temporal** in t
 
 </div>
 
+Test
+
 By the end of this workshop, you'll understand how to:
 
 - **Create AI agents** with tool calling using OpenAI's Agents SDK
