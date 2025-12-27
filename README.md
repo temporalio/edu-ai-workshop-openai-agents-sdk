@@ -24,8 +24,6 @@ By the end of this workshop, you'll understand how to:
 - **Implement multi-agent systems** with handoff patterns
 - **Observe and debug** agent execution using Temporal UI
 
-> **Pro Tip**: These aren't just toy examples—you'll learn production patterns used by real companies!
-
 ## Prerequisites
 
 <div align="center">
@@ -37,8 +35,6 @@ By the end of this workshop, you'll understand how to:
 - **Basic Python knowledge** - If you can write a function, you're ready!
 - **OpenAI API key** - [Get one here](https://platform.openai.com/api-keys) (free tier works!)
 - **GitHub account** - For Codespaces 
-
-> **Cost Note**: The workshop uses ~$0.50-$1.00 of OpenAI API credits. Free tier is plenty!
 
 ## Quick Start
 
